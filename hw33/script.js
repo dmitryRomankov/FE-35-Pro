@@ -43,4 +43,5 @@ const sortTeachers = () => getAllPeople.sort((a, b) => b.teachers - a.teachers);
 
 console.log(sortTeachers())
 
+//done
 
