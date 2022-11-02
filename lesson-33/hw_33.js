@@ -50,8 +50,8 @@ console.log("Task 3 result:");
 console.log(`Среднее кол-во студентов ${totalStudents/count}`);
 
 // Task 4
-const subArray = Object.keys(subjects).map(key => {
-  return subjects[key];
+const subArray = Object.keys(subjects).map((key, index) => {
+  return {subject: key, id: index};
 });
 
 console.log("Task 4 result:");
