@@ -28,33 +28,22 @@ console.log(nameArray);
 
 // task 2
 
-const manCount = subjectsValues.reduce((accum, current, iterator) => {
-    if (iterator === 1) {
-        const firstSubjectPeopleArray = Object.values(accum);
-        accum = {students: 0, teachers: 0}
-        accum.students += firstSubjectPeopleArray[0];
-        accum.teachers += firstSubjectPeopleArray[1];
-    }
+const manCount = subjectsValues.reduce((accum, current) => {
     const subjectPeopleArray = Object.values(current);
     accum.students += subjectPeopleArray[0];
     accum.teachers += subjectPeopleArray[1];
     return accum;
-});
+}, {students: 0, teachers: 0});
 
 console.log(manCount);
 
 // task 3
 
-const studentsCount = subjectsValues.reduce((accum, current, iterator) => {
-    if(iterator === 1) {
-        const firstSubjectStudentArray = Object.values(accum);
-        accum = 0;
-        accum += Number(firstSubjectStudentArray[0]);
-    }
+const studentsCount = subjectsValues.reduce((accum, current) => {
     const subjectStudentArray = Object.values(current);
     accum += Number(subjectStudentArray[0]);
     return accum;
-});
+}, 0);
 
 console.log(studentsCount / subjectsKeys.length);
 
