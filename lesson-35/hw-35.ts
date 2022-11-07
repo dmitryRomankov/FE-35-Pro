@@ -57,6 +57,7 @@ function hasEduc(users: IUsers[]): IUsers[] {
 
 console.log(hasEduc(ussers))
 
+
 // 4
 function filterAnimals (users: IUsers[]): IUsers[] {
 	return users.filter((user) => { return user.animals !== undefined;})
