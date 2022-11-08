@@ -33,11 +33,11 @@ const users = [
     }
 ];
 
-const averageUsersAge = users.reduce((acc, curr) => acc + curr.age, 0) / users.length;
+const averageUsersAge = users.reduce((acc, curr) => {acc + curr.age}, 0) / users.length;
 
 const sortUsers = () => users.sort((a, b) => b.age - a.age);
 
-const isMatchAge = (age) => users.some(user => user.age === age);
+const isMatchAge  = (age) => {users.some(user => user.age === age)};
 
 console.log(sortUsers())
 console.log(isMatchAge(22))
