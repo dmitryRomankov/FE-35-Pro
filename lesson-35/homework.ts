@@ -8,11 +8,6 @@ interface IUsers {
 	hasEducation: boolean
 }
 
-interface CountCars {
-	acc: number
-	cars: string[] | undefined
-}
-
 const users: IUsers[] = [
 	{
 		name: "Harry Felton",
