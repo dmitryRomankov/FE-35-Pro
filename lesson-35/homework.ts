@@ -53,6 +53,5 @@ const filterAnimals = (users: IUsers[]): IUsers[] => users.filter(({ animals }: 
 console.log(filterAnimals(users)) // [{...}]
 
 // 5. Создать функцию, которая бы принимала массив пользователей и отдавала бы строку с названиями марок автомобилей через запятую
-const getModelCars = (users: IUsers[]): object => users.filter(({ cars }: IUsers): number | undefined => cars?.length).flatMap(({ cars }: IUsers): string[] | undefined => cars)
-console.log(getModelCars(users)) // ["bmw", "bmw", "audi"]
-
+const getModelCars = (users: IUsers[]): string => users.filter(({ cars }: IUsers): number | undefined => cars?.length).flatMap(({ cars }: IUsers): string[] | undefined => cars).join(', ')
+console.log(getModelCars(users)) // bmw, bmw, audi
