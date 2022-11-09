@@ -72,9 +72,9 @@
      console.log (userAnimals)
 
      //5 
-     function getAuto(users) {
+     function mapAuto(users) {
         return users.map(function (auto) {
              if (auto.cars !== undefined)
             return auto.cars; }).join (', ');
     }
-    console.log(getAuto(users));
+    console.log(maptAuto(users));
