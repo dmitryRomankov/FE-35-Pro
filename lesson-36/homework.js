@@ -120,11 +120,11 @@ const getMoviesReleaseInYear = (number, array) => array.filter(({ year }) => yea
 console.log(getMoviesReleaseInYear(2021, movies)) // [{ id: 1, ... }]
 
 // 6. Создать функцию, которая бы принимала массив фильмов и строку. А результатом этой функции должен быть новый отфильтрованный массив, с фильмами, где строка входит в название фильма.
-const searchMoviesByTitle = (input, array) => array.filter(({ title }) => title.toLowerCase().startsWith(input.toLowerCase())) // includes(input) ...
-console.log(searchMoviesByTitle('Harry', movies)) // [{ id: 2, ... }, { id: 4, ... }, { id: 5, ... }]
+const filterMoviesByTitle = (input, array) => array.filter(({ title }) => title.toLowerCase().startsWith(input.toLowerCase())) // includes(input) ...
+console.log(filterMoviesByTitle('Harry', movies)) // [{ id: 2, ... }, { id: 4, ... }, { id: 5, ... }]
 
 // 7. Создать функцию, которая бы принимала массив фильмов и строку. А результатом этой функции должен быть отфильтрованный массив, с фильмами, где строка входит в название фильма или в его сюжет.
-const searchMoviesByTitleOrPlot = (input, array) => array.filter(({ title, plot }) => {
+const filterMoviesByTitleOrPlot = (input, array) => array.filter(({ title, plot }) => {
 	const [inputLC, titleLC, plotLC] = [input, title, plot].map(item => item.toLowerCase())
 
 	return [titleLC, plotLC]
@@ -132,7 +132,7 @@ const searchMoviesByTitleOrPlot = (input, array) => array.filter(({ title, plot 
 		.some(item => item)
 })
 
-console.log(searchMoviesByTitleOrPlot('Harry', movies)) // [{ id: 2, ... }, { id: 4, ... }, { id: 5, ... }]
+console.log(filterMoviesByTitleOrPlot('Harry', movies)) // [{ id: 2, ... }, { id: 4, ... }, { id: 5, ... }]
 
 // 8. Создать функцию, которая бы принимала 3 параметра:
 //    1)массив фильмов , 2) строка(название поля, например 'title') и
@@ -143,7 +143,7 @@ console.log(searchMoviesByTitleOrPlot('Harry', movies)) // [{ id: 2, ... }, { id
 //    фильм с id=1 если передаем (films, 'year', 2011) , то получаем
 //    фильм с id=2
 
-const alternateSearch = (movies, prop, value) => movies.filter(movie => JSON.stringify(movie[prop]) === JSON.stringify(value)) // JSON сделал если на случай у проперти значение массив. Если это не нужно просто избавиться от JSON.stringify()
-console.log(alternateSearch(movies, 'genre', [ 'Adventure', 'Family', 'Fantasy' ])) // [{ id: 5, ... }]
+const alternateFilter = (movies, prop, value) => movies.filter(movie => JSON.stringify(movie[prop]) === JSON.stringify(value)) // JSON сделал если на случай у проперти значение массив. Если это не нужно просто избавиться от JSON.stringify()
+console.log(alternateFilter(movies, 'genre', [ 'Adventure', 'Family', 'Fantasy' ])) // [{ id: 5, ... }]
 
 // !!! Можно было еще и типы отследить, но JSON.stringify() универсально.
