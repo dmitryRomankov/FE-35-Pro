@@ -125,14 +125,14 @@ console.log(filterMoviesByTitle('Harry', movies)) // [{ id: 2, ... }, { id: 4, .
 
 // 7. Создать функцию, которая бы принимала массив фильмов и строку. А результатом этой функции должен быть отфильтрованный массив, с фильмами, где строка входит в название фильма или в его сюжет.
 const filterMoviesByTitleOrPlot = (input, array) => array.filter(({ title, plot }) => {
-	const [inputLC, titleLC, plotLC] = [input, title, plot].map(item => item.toLowerCase())
+	const [inputLC, ...rest] = [input, title, plot].map(item => item.toLowerCase())
 
-	return [titleLC, plotLC]
+	return [...rest]
 		.map(item => item.startsWith(inputLC))
 		.some(item => item)
 })
 
-console.log(filterMoviesByTitleOrPlot('Harry', movies)) // [{ id: 2, ... }, { id: 4, ... }, { id: 5, ... }]
+console.log('Here: ' + filterMoviesByTitleOrPlot('Harry', movies)) // [{ id: 2, ... }, { id: 4, ... }, { id: 5, ... }]
 
 // 8. Создать функцию, которая бы принимала 3 параметра:
 //    1)массив фильмов , 2) строка(название поля, например 'title') и
