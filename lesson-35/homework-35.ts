@@ -67,7 +67,11 @@ console.log(seeAnimals);
 // task 5
 
 function getAuto(users: IUsers[]): string {
-  return users.map((auto) => auto.cars).join(" , ");
+  return users.reduce(function (acc, curr) {
+    if (curr.cars !== undefined) {
+      return acc + " " + curr.cars;
+    }
+    return acc;
+  }, "");
 }
-getAuto(users);
-// что-то не работает(((((((((()))))))))
+console.log(getAuto(users));

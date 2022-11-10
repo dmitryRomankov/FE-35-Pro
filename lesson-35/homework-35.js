@@ -44,6 +44,11 @@ var seeAnimals = users.filter(function (animals) { return animals.animals; });
 console.log(seeAnimals);
 // task 5
 function getAuto(users) {
-    return users.map(function (auto) { return auto.cars; }).join(" , ");
+    return users.reduce(function (acc, curr) {
+        if (curr.cars !== undefined) {
+            return acc + " " + curr.cars;
+        }
+        return acc;
+    }, "");
 }
-getAuto(users);
+console.log(getAuto(users));
