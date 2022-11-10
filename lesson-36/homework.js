@@ -132,7 +132,7 @@ const filterMoviesByTitleOrPlot = (input, array) => array.filter(({ title, plot 
 		.some(item => item)
 })
 
-console.log('Here: ' + filterMoviesByTitleOrPlot('Harry', movies)) // [{ id: 2, ... }, { id: 4, ... }, { id: 5, ... }]
+console.log(filterMoviesByTitleOrPlot('Harry', movies)) // [{ id: 2, ... }, { id: 4, ... }, { id: 5, ... }]
 
 // 8. Создать функцию, которая бы принимала 3 параметра:
 //    1)массив фильмов , 2) строка(название поля, например 'title') и
@@ -145,5 +145,3 @@ console.log('Here: ' + filterMoviesByTitleOrPlot('Harry', movies)) // [{ id: 2, 
 
 const alternateFilter = (movies, prop, value) => movies.filter(movie => JSON.stringify(movie[prop]) === JSON.stringify(value)) // JSON сделал если на случай у проперти значение массив. Если это не нужно просто избавиться от JSON.stringify()
 console.log(alternateFilter(movies, 'genre', [ 'Adventure', 'Family', 'Fantasy' ])) // [{ id: 5, ... }]
-
-// !!! Можно было еще и типы отследить, но JSON.stringify() универсально.
