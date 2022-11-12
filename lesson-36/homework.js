@@ -143,5 +143,5 @@ console.log(filterMoviesByTitleOrPlot('Harry', movies)) // [{ id: 2, ... }, { id
 //    фильм с id=1 если передаем (films, 'year', 2011) , то получаем
 //    фильм с id=2
 
-const alternateFilter = (movies, prop, value) => movies.filter(movie => JSON.stringify(movie[prop]) === JSON.stringify(value)) // JSON сделал если на случай у проперти значение массив. Если это не нужно просто избавиться от JSON.stringify()
-console.log(alternateFilter(movies, 'genre', [ 'Adventure', 'Family', 'Fantasy' ])) // [{ id: 5, ... }]
+const alternateFilter = (movies, prop, value) => movies.filter(movie => String(movie[prop]) === String(value))
+console.log(alternateFilter(movies, 'year', 2011)) // [{ id: 5, ... }]
