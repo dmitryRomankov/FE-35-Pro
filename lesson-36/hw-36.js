@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 /*
 C массивом фильмов сделать следующий
 задачи, используя map/reduce вместо for, forEach:
@@ -62,7 +63,7 @@ const movies = [
     director: "George Lucas",
     writer: "George Lucas",
     actors: ["Mark Hamill", "Harrison Ford", "Carrie Fisher"],
-      plot: "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vad",
+    plot: "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vad",
     country: "United States, United Kingdom",
     poster: "https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
     imdbRating: 8.6,
@@ -90,6 +91,7 @@ const movies = [
     production: "Heyday Films, Warner Bros.",
   },
   {
+    id: 5,
     title: "Harry Potter and the Sorcerer's Stone",
     year: 2001,
     released: "16 Nov 2001",
@@ -109,7 +111,7 @@ const movies = [
 ]
 
 // Task 1
-function getGenres(movies) {
+function getUniqGenres(movies) {
   let allGenresArray = movies.reduce((acc, currMovie) => {
     return (currMovie.genre)? [...acc, ...currMovie.genre] : acc;
   }, []);
@@ -119,11 +121,11 @@ function getGenres(movies) {
   return Array.from(uniqGenresSet);
 }
 
-console.log('Task 1:')
-console.log(getGenres(movies));
+console.log(chalk.bgMagenta('Task 1:'));
+console.log(getUniqGenres(movies));
 
 // Task 2
-function getActors(movies) {
+function getUniqActors(movies) {
   let allActorsArray = movies.reduce((acc, currMovie) => {
     return (currMovie.actors)? [...acc, ...currMovie.actors] : acc;
   }, []);
@@ -133,5 +135,82 @@ function getActors(movies) {
   })
 }
 
-console.log('Task 2:')
-console.log(getActors(movies));
+console.log(chalk.bgMagenta('Task 2:'));
+console.log(getUniqActors(movies));
+
+// Task 3
+function sortMoviesByRating(movies) {
+  let sortedMovies = movies.map(item => {return {...item}});
+
+  return sortedMovies.sort((a, b) => {
+    return b.imdbRating - a.imdbRating;
+  });
+}
+
+console.log(chalk.bgMagenta('Task 3:'));
+console.log(sortMoviesByRating(movies));
+
+// Task 4
+// short array with {id, title, released, plot}
+
+function getShortMoviesArray(movies) {
+  let shortMovies = movies.map((movie) => {
+    return {'id': movie.id, 'title': movie.title, 'released': movie.released, 'plot': movie.plot};
+  })
+  return shortMovies;
+}
+
+console.log(chalk.bgMagenta('Task 4:'));
+console.log(getShortMoviesArray(movies));
+
+// Task 5
+// filter by year
+function filterMoviesByYear(movies, year) {
+  let filteredMovies = movies.filter((movie) => {
+    return movie.year === year;
+  })
+  return filteredMovies;
+}
+
+console.log(chalk.bgMagenta('Task 5:'));
+console.log(filterMoviesByYear(movies, 2001));
+
+// Task 6
+// movie.title includes string
+function filterIncludesStingInTitle(movies, string) {
+  let filteredMovies = movies.filter((movie) => {
+    return movie.title.toLowerCase().includes(string.toLowerCase());
+  })
+  return filteredMovies;
+}
+
+console.log(chalk.bgMagenta('Task 6:'));
+console.log(filterIncludesStingInTitle(movies, 'potter'));
+
+// Task 7
+// movie.title OR movie.plot includes string
+function filterIncludesStingInTitleOrPlot(movies, string) {
+  let filteredMovies = movies.filter((movie) => {
+    return (
+      (movie.title.toLowerCase().includes(string.toLowerCase()))
+      ||
+      (movie.plot.toLowerCase().includes(string.toLowerCase()))
+    );
+  })
+  return filteredMovies;
+}
+
+console.log(chalk.bgMagenta('Task 7:'));
+console.log(filterIncludesStingInTitleOrPlot(movies, 'potter'));
+
+// Task 8
+// filter by property name and value
+function filterMovieByProperty(movies, propName, propValue) {
+  let filteredMovies = movies.filter((movie) => {
+    return movie[propName] === propValue;
+  })
+  return filteredMovies;
+}
+
+console.log(chalk.bgMagenta('Task 8:'));
+console.log(filterMovieByProperty(movies,'title', 'Black Widow'));
