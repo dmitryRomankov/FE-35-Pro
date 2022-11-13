@@ -1,0 +1,41 @@
+
+    const subjects = {
+        mathematics: {
+            students: 200,
+            teachers: 6
+        },
+        biology: {
+            students: 120,
+            teachers: 5
+        },
+        geography: {
+            students: 60,
+            teachers: 2
+        },
+        chemistry: {
+            students: 100,
+            teachers: 3
+        }
+}
+// 1
+const keysSubjects=Object.keys(subjects)
+// console.log(`${keysSubjects}`)
+console.log(keysSubjects.join(', '))
+// 4
+const valuesSubjects=Object.values(subjects)
+console.log(valuesSubjects)
+// 5
+const sortTeachers = () => valuesSubjects.sort((a,b)=>{return b.teachers-a.teachers})
+console.log(sortTeachers())
+// 2
+const sumTeachers = () => valuesSubjects.reduce((acc, curr)=>{return acc+curr.teachers},0)
+// console.log(sumTeachers())
+const sumStudents = () => valuesSubjects.reduce((acc, curr)=>{return acc+curr.students},0)
+// console.log(sumStudents())
+
+console.log(`students: ${sumStudents()}`)
+console.log(`teachers: ${sumTeachers()}`)
+
+// 3
+const aver = sumStudents() / valuesSubjects.length
+console.log(aver)
