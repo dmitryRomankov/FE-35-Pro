@@ -1,0 +1,8 @@
+.tabs_root{
+    display: inline-flex;
+}
+
+.tabs{
+    font-size: 25px;
+    margin: 8px;
+}
