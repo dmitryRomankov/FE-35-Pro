@@ -46,7 +46,7 @@ class App extends Component {
 
     return (
       <>
-        <Form onSubmit={this.handleSubmit} name="name" action="" method="24f" />
+        <Form onSubmit={this.handleSubmit} name="name" action="" method="method" />
       </>
     )
 
