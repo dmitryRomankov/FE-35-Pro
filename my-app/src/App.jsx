@@ -78,6 +78,7 @@ class App extends Component {
         {/* Conditional Rendering */}
 
         <div>
+          <h2>Conditional rendering</h2>
           {!this.state.isDefaultAvatar && <Avatar src={img1} />}
           {this.state.isDefaultAvatar && <DefaultAvatar />}
 
