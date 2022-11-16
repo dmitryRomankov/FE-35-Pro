@@ -21,6 +21,7 @@ export class Form extends Component {
           <h2>Inputs</h2>
           {children}
         </div>
+        <Button onClick={this.handleSubmitForm} />
       </form>
     );
   }

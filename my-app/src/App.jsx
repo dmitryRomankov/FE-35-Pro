@@ -38,7 +38,8 @@ class App extends Component {
   };
 
   handleSubmit = (data) => {
-    console.log(data);
+    console.log('lifted state', data);
+    console.log('state', this.state);
   };
 
   handleChangeAvatar = () =>
@@ -55,7 +56,7 @@ class App extends Component {
           <Input name="password" type="password" placeholder="password" onChange={this.handleChange} />
           <Input name="email" type="email" placeholder="email" onChange={this.handleChange} />
           <Input name="text" type="text" placeholder="text" onChange={this.handleChange} />
-          <Input type="submit" onClick={this.handleSubmit} />
+          <Input type="submit" />
         </Form>
 
         {/*Rendering of list*/}
@@ -63,7 +64,7 @@ class App extends Component {
           <h2>List</h2>
           {users.map((user) => {
             return (
-              <li>{user.name}</li>
+              <li key={user.id}>{user.name}</li>
             )
           })}
         </ul>
