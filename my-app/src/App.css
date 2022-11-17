@@ -1,0 +1,14 @@
+.react-example {
+  display: flex;
+}
+
+.list {
+  width: 100%;
+  margin: 0;
+  padding: 48px 0 0 32px;
+  background-color:#e0dede;
+}
+
+.counter {
+  padding: 48px 0 0 32px;
+}
