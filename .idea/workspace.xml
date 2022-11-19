@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="705f28dc-f53a-4df7-8c49-5322d6762c1f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lesson-36/homework36.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +33,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/frontend/FE35_REACT/FE-35-Pro",
+    "last_opened_file_path": "E:/frontend/practice",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "Settings.JavaScript",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.1.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
@@ -48,7 +48,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668272170349</updated>
-      <workItem from="1668272171474" duration="9374000" />
+      <workItem from="1668272171474" duration="10196000" />
+      <workItem from="1668528130198" duration="17000" />
     </task>
     <servers />
   </component>

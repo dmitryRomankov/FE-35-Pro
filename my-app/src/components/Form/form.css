@@ -1,0 +1,12 @@
+.form {
+  display: flex;
+  background-color:#f3f3f3;
+}
+
+.form__container {
+  padding: 32px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 30px;
+}
