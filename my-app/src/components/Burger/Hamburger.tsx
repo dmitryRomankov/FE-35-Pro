@@ -1,19 +1,44 @@
+import { Component } from "react";
 import "../Burger/Hamburger.css";
 import "../cdn.css";
 
-export function Hamburger(props) {
-  return (
-    <>
-      <div className="burger" onClick={props.onClick}>
-        <i className="fa-solid fa-bars" style={props.style}></i>
-        <i className="fa-solid fa-xmark" style={props.style}></i>
-      </div>
-      <nav className="burger-navigation" style={props.style}>
-        <ul className="navigation-list">
-          <li className="nav-item">AM</li>
-          <li className="nav-item">DM</li>
-        </ul>
-      </nav>
-    </>
-  );
+export class Hamburger extends Component<
+  {},
+  { className: boolean; name: string }
+> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      className: true,
+      name: "Alex Malkovich",
+    };
+  }
+  handleClick = () => {
+    this.setState((state) => ({
+      className: !state.className,
+    }));
+  };
+  render() {
+    if (this.state.className) {
+      return (
+        <div className="burger">
+          <i className="fa-solid fa-bars" onClick={this.handleClick}></i>
+        </div>
+      );
+    } else {
+      return (
+        <div className="burger" onClick={this.handleClick}>
+          <i className="fa-solid fa-xmark"></i>
+          <nav className="burger-navigation">
+            <ul className="navigation-list">
+              <li className="nav-item">{this.state.name}</li>
+              <li className="nav-item">Home</li>
+              <li className="nav-item">Favorite</li>
+            </ul>
+          </nav>
+        </div>
+      );
+    }
+  }
 }

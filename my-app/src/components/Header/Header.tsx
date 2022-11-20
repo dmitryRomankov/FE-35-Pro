@@ -4,7 +4,12 @@ import "../Header/Header.css";
 export function Header() {
   return (
     <div className="header">
-      <Hamburger onClick={() => console.log("works")} />
+      <Hamburger />
+      <input type="text" className="header-input" />
+      <div className="search">
+        <i className="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div className="userName">Alex Malkovich </div>
     </div>
   );
 }
