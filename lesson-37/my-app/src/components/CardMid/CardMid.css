@@ -1,0 +1,16 @@
+.wrapper-cardMid {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  max-width: 250px;
+  padding: 10px;
+}
+
+.cardMid-info__title {
+  font-weight: 900;
+}
+
+.cardMid__img {
+  max-width: 300px;
+  max-height: 150px;
+}
