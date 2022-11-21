@@ -8,7 +8,6 @@ export class Hamburger extends Component<
 > {
   constructor(props: any) {
     super(props);
-
     this.state = {
       className: true,
       name: "Alex Malkovich",
