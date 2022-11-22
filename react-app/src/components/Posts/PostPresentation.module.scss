@@ -1,0 +1,41 @@
+@import "src/styles/mixins/post-container";
+@import "src/styles/mixins/post-bottom";
+
+.container {
+  @include post-container;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  column-gap: 16px;
+}
+
+.date {
+  font-size: 1.4rem;
+  color: var(--color-gray-middle);
+}
+
+.title {
+  margin-top: 8px;
+  font-size: 1.8rem;
+}
+
+.description {
+  margin-top: 16px;
+  color: var(--color-gray);
+}
+
+.poster {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: -5px 6px 20px 0px var(--color-shadow-large);
+}
+
+.bottom {
+ @include post-bottom
+}

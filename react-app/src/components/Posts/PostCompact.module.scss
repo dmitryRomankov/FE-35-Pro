@@ -1,0 +1,35 @@
+@import "src/styles/mixins/post-container";
+@import "src/styles/mixins/post-bottom";
+
+.container {
+  @include post-container;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  column-gap: 16px;
+}
+
+.date {
+  font-size: 1.4rem;
+  color: var(--color-gray-middle);
+}
+
+.title {
+  margin-top: 8px;
+  font-size: 1.4rem;
+}
+
+.poster {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.bottom {
+  @include post-bottom
+}
