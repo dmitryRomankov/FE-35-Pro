@@ -4,9 +4,8 @@ import "./form.css";
 
 export class Form extends Component {
   state = {
-    propert: 'string',
+    property: 'string',
   }
-
 
   handleSubmitForm = (e) => {
     e.preventDefault();
