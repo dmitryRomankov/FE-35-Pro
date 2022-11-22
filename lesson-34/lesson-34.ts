@@ -1,6 +1,6 @@
 //.ts
 
-// Basic types
+// Basic interfaces
 const num: number = 5;
 
 const str: string = "string";

@@ -31,7 +31,7 @@ print<string, number>('Name', 20);
 print<string, string>('Name', '20');
 
 
-// Utility types: Pick, Exclude, Omit, Extract
+// Utility interfaces: Pick, Exclude, Omit, Extract
 
 interface Todo {
     title: string;
