@@ -6,12 +6,15 @@ import { cardStoreMid } from "./data/cardMidInfo";
 import { cardStoreSmall } from "./data/cardSmallInfo";
 import { CardMid } from "./components/CardMid/CardMid";
 import { CardSmall } from "./components/CardSmall/CardSMall";
-import { Page } from "./components/CardPage/Page";
+import { Page } from "./pages/page/Page";
 import { PageInfo } from "./data/pageInfo";
+import { Button } from "./components/Button/Button";
+import { Counter } from "./components/Counter/Counter";
 
 function App() {
   return (
     <>
+      {/* HOMEWORK38 START  */}
       <div className="card-container">
         <div>
           {cardStoreBig.map((card, index) => {
@@ -50,6 +53,9 @@ function App() {
           return <Page className="page" key={page.id} page={PageInfo[index]} />;
         })}
       </div>
+
+      {/* HOMEWORK38 END  */}
+      {/* HOMEWORK40 START */}
     </>
   );
 }
