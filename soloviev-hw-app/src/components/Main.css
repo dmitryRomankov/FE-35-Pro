@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   flex: 1 0 auto;
+  margin:auto
 }
 
 .article {
@@ -12,6 +13,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 32px;
+  
 }
 
 .article h2 {

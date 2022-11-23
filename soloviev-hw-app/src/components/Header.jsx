@@ -1,13 +1,17 @@
-import React from "react";
+import React, { Component } from 'react';
 import './Header.css';
+import Menu from "./Menu";
+
 
 class Header extends React.Component {
+  
   render() {
     return (
       <>
         <header className='header'>
-          <div className="container">
-            <button className='button-burger header__button '>Burger</button>
+            <button className='button-burger header__button'>
+              <span></span>
+            </button>
             <nav className="header-nav">
               <ul className='header-nav__list'>
                 <li className="header-nav__item">
@@ -18,8 +22,6 @@ class Header extends React.Component {
                 </li>
               </ul>
             </nav>
-          </div>
-
         </header>
 
       </>
