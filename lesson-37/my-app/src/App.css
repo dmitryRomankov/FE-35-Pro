@@ -7,11 +7,15 @@
   gap: 10px;
 }
 
-/* .wrapper {
+.wrapper {
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 30px;
-} */
+}
+.card-flex {
+  display: flex;
+  gap: 10px;
+}

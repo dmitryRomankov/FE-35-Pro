@@ -11,44 +11,46 @@ import { PageInfo } from "./data/pageInfo";
 
 function App() {
   return (
-    <div className="card-container">
-      {cardStoreBig.map((card, index) => {
-        return (
-          <CardBig
-            className="card-big"
-            key={card.id}
-            card={cardStoreBig[index]}
-          />
-        );
-      })}
-      {cardStoreMid.map((card, index) => {
-        return (
-          <CardMid
-            className="card-mid"
-            key={card.id}
-            card={cardStoreMid[index]}
-          />
-        );
-      })}
-      {cardStoreSmall.map((card, index) => {
-        return (
-          <CardSmall
-            className="card-small"
-            key={card.id}
-            card={cardStoreSmall[index]}
-          />
-        );
-      })}
-    </div>
-
-    // вверху карточки
-    // внизу закоменчена страница
-
-    // <div className="wrapper">
-    //   {PageInfo.map((page, index) => {
-    //     return <Page className="page" key={page.id} page={PageInfo[index]} />;
-    //   })}
-    // </div>
+    <>
+      <div className="card-container">
+        <div>
+          {cardStoreBig.map((card, index) => {
+            return (
+              <CardBig
+                className="card-big"
+                key={card.id}
+                card={cardStoreBig[index]}
+              />
+            );
+          })}
+        </div>
+        <div className="card-flex">
+          {cardStoreMid.map((card, index) => {
+            return (
+              <CardMid
+                className="card-mid"
+                key={card.id}
+                card={cardStoreMid[index]}
+              />
+            );
+          })}
+          {cardStoreSmall.map((card, index) => {
+            return (
+              <CardSmall
+                className="card-small"
+                key={card.id}
+                card={cardStoreSmall[index]}
+              />
+            );
+          })}
+        </div>
+      </div>
+      <div className="wrapper">
+        {PageInfo.map((page, index) => {
+          return <Page className="page" key={page.id} page={PageInfo[index]} />;
+        })}
+      </div>
+    </>
   );
 }
 
