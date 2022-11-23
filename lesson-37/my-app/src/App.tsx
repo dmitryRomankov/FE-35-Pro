@@ -1,6 +1,6 @@
 import React from 'react';
 import { Title } from './components/title/title';
-import Burger from './components/burger/burger';
+import { Hamburger } from './components/burger/Hamburger';
 import './App.css';
 import Search from './components/search/search';
 
@@ -9,8 +9,8 @@ function App() {
     <div className='container'>
         <Title text='Sign In'>
 			</Title>
-      <nav>
-        <Burger/>
+      <nav className='header'>
+        <Hamburger/>
         <Search/>
       </nav>
       

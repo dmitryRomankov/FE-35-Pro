@@ -1,10 +1,56 @@
-.burger-btn {
+.burger {
+    display: block;
+    position: relative;
+    left: 10px;
+    transition-duration: 0.5s;
     background-color: blue;
+  }
+  .burger-navigation {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    top: 25px;
+    background-color: blue;
+    color: #fff;
+    font-size: 14px;
+  }
+  .navigation-list {
+    padding: 10px;
+    padding-bottom: 20px;
+    position: relative;
+    left: 210px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    background-color: blue;
+  }
+  .nav-item {
+    cursor: pointer;
+    margin-left: 50px;
+    margin-top: 8px;
+    transition: 0.3s;
+    list-style-type: none;
+  }
+  .nav-item:hover {
+    color: rgb(174, 174, 174);
+    transition: 0.3s;
+  }
+
+  .burger-btn {
+    background-color: blue;
+    cursor: pointer;
+    position: relative;
+    top: 0px;
+    left: 10px;
     border: none;
+  }
+  .close-btn {
+    background-color: blue;
+    position: relative;
+    top: 0px;
+    left: 20px;
     width: 30px;
     height: 30px;
-    margin-left: 20px;
-    position: relative;
+    border: none;
     cursor: pointer;
-    color: white;
-}
+  }
