@@ -1,0 +1,18 @@
+.wrapper-cardSmall {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  max-width: 200px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.cardSmall-info__title {
+  font-weight: 900;
+}
+
+.cardSmall__img {
+  max-width: 100px;
+  max-height: 100px;
+}
