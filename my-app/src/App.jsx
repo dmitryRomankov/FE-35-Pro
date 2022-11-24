@@ -18,7 +18,6 @@ const App = () => {
 
   const ref = useRef();
   const ref1 = createRef();
-  console.log(ref.current)
 
   // Rules of hooks
   // 1. Call only on the top level
@@ -30,10 +29,6 @@ const App = () => {
       ref.current.focus();
     }
   }, [])
-
-  console.log(ref);
-
-
 
   return (
     <div style={{ background: theme.dark.background, color: theme.dark.textColor}}>
