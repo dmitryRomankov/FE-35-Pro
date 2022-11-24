@@ -1,0 +1,16 @@
+.card {
+time {
+    display: block;
+}
+}
+.card__img{
+    @media screen and (min-width: 960px) {
+    width: 250px;
+    height: 250px;
+    }
+    @media screen and (max-width: 959px) {
+        width: 250px;
+        height: 250px;
+    }
+    object-fit: cover;
+}
