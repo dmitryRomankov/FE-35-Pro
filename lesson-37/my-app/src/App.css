@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    height: 50px;
+    width: 100%;
+    padding: 30px 0px;
+    background-color: blue;
+    position: fixed;
+    display: flex;
+    align-items: center;
+}
+main {
+    padding: 40px;
+    margin-top: 50px;
+}
+p {
+    margin: 20px;
+}
