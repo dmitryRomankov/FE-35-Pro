@@ -1,0 +1,97 @@
+{
+  "count": 202,
+  "next": "http://studapi.teachmeskills.by/blog/posts/?limit=10&offset=10",
+  "previous": null,
+  "results": [
+    {
+      "id": 1,
+      "image": "https://wonder-day.com/wp-content/uploads/2022/03/wonder-day-avatar-memes-cats-35.jpg",
+      "text": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui provident adipisci consequatur quos rem atque dolores alias sequi sapiente! Voluptas, sunt. Totam esse, voluptates doloremque sint debitis velit dolores dicta explicabo, itaque sed ab laboriosam suscipit rem corporis aliquam natus adipisci deserunt distinctio. Consectetur, distinctio accusamus eos deserunt eaque tempore pariatur ad laudantium culpa ratione sunt libero excepturi doloribus unde rerum facilis neque sequi reprehenderit ab reiciendis. Voluptas nostrum maxime vitae ullam atque tempora provident quam aut, reiciendis alias nesciunt quae magni eligendi distinctio dolore possimus suscipit accusantium! Dolorem doloremque, aliquam error id qui, iure aperiam laboriosam corrupti nesciunt quas minus mollitia reiciendis sequi nihil alias laudantium maxime possimus reprehenderit! Modi, exercitationem mollitia molestiae quibusdam commodi, ipsa, ea atque placeat ad recusandae aspernatur? Sed nostrum eius eos temporibus blanditiis. Aliquid modi incidunt est maiores, sit expedita nemo, totam sed assumenda id quod rerum praesentium debitis adipisci possimus laborum mollitia tempore, nobis quo architecto animi ipsa voluptates iusto. Nemo eum tempore laborum assumenda officiis ducimus, mollitia amet, magnam tempora adipisci doloribus beatae quod rerum accusamus corrupti blanditiis! Porro aliquam placeat magnam aliquid illo eveniet voluptatibus quaerat quibusdam! Accusamus, voluptas. Inventore quas, quo nemo nisi placeat itaque minima quos molestiae quaerat. Quibusdam sit nisi, est dolorem repellat suscipit distinctio nostrum sapiente explicabo quam cupiditate ",
+      "date": "2021-10-06",
+      "lesson_num": 123,
+      "title": "Lorem ipsum dolor ",
+      "author": 7
+    },
+    {
+      "id": 2,
+      "image": "https://avatars.mds.yandex.net/i?id=b323ab5b51f9ef1d9c861aa6863fe764-5589536-images-thumbs&n=13",
+      "text": "Text",
+      "date": "2021-10-07",
+      "lesson_num": 48,
+      "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui provident adipisci consequatur quos rem atque dolores alias sequi sapiente!",
+      "author": 7
+    },
+    {
+      "id": 3,
+      "image": "https://animalworld.com.ua/images/2014/November/Foto/2/Fun_anim-21.jpg",
+      "text": "Hello!",
+      "date": "2021-10-07",
+      "lesson_num": 23,
+      "title": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "author": 97
+    },
+    {
+      "id": 4,
+      "image": "https://tms-studapi-dev.s3.amazonaws.com/media/unnamed_5c5gF9H.jpeg",
+      "text": "Hi",
+      "date": "2021-10-07",
+      "lesson_num": 22,
+      "title": "b-52",
+      "author": 97
+    },
+    {
+      "id": 5,
+      "image": "https://tms-studapi-dev.s3.amazonaws.com/media/unnamed_MQSTowL.jpeg",
+      "text": "Test",
+      "date": "2021-10-07",
+      "lesson_num": 59,
+      "title": "b-52",
+      "author": 97
+    },
+    {
+      "id": 6,
+      "image": "https://tms-studapi-dev.s3.amazonaws.com/media/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2021-10-07_%D0%B2_10.12.21.png",
+      "text": "Hello",
+      "date": "2021-10-07",
+      "lesson_num": 44,
+      "title": "b-52",
+      "author": 99
+    },
+    {
+      "id": 7,
+      "image": "https://tms-studapi-dev.s3.amazonaws.com/media/unnamed_Akeb3ob.jpeg",
+      "text": "Hello2",
+      "date": "2021-10-07",
+      "lesson_num": 441,
+      "title": "b-52!!",
+      "author": 99
+    },
+    {
+      "id": 8,
+      "image": "https://tms-studapi-dev.s3.amazonaws.com/media/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2021-10-08_%D0%B2_11.32.46.png",
+      "text": "На чиле",
+      "date": "2021-10-08",
+      "lesson_num": 100,
+      "title": "b-52!!",
+      "author": 122
+    },
+    {
+      "id": 9,
+      "image": "https://tms-studapi-dev.s3.amazonaws.com/media/a1.JPG",
+      "text": "Blablablalba",
+      "date": "2021-10-08",
+      "lesson_num": 49,
+      "title": "BLABLABLA",
+      "author": 123
+    },
+    {
+      "id": 10,
+      "image": "https://tms-studapi-dev.s3.amazonaws.com/media/Niira.jpg",
+      "text": "my sisters cat",
+      "date": "2021-10-08",
+      "lesson_num": 49,
+      "title": "Cat Niira",
+      "author": 123
+    }
+  ]
+}

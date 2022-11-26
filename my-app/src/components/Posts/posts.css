@@ -1,0 +1,31 @@
+.posts-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.post-item {
+  width: 420px;
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+.posts-item-image {
+  max-width: 420px;
+  max-height: 420px;
+  overflow: hidden;
+  object-fit: cover;
+  position: relative;
+}
+.posts-item-image img {
+  overflow: hidden;
+  object-fit: cover;
+}
+.posts-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.posts-item-tittle {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 20px 0 30px;
+}
