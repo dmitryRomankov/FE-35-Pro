@@ -3,14 +3,18 @@ import Main from "./components/Main";
 import Menu from "./components/Menu";
 import Card from "./components/Card";
 import CardList from "./components/CardList";
+import {Registration} from "./components/Registration";
+import {RegistrationFunc} from "./components/RegistrationFunc";
+import { useState } from "react";
 
 import './App.css';
 
-// import {useState} from 'react';
-
-
 function App() {
-  // const [menuActive, setMenuActive] = useState(true);
+  const [menuActive, setMenuActive] = useState(false);
+
+  const handleMenuChange = () => {
+    setMenuActive(!menuActive)
+  }
 
   const menuItems = [
     {value: "Main", href: "/main"}, {value: "Posts", href: "/posts"}, {value: "Sign In", href: "/sign-in"}, {value: "Contacts", href: "/contacts"}
@@ -53,28 +57,22 @@ function App() {
       "lesson_num": 23,
       "title": "B-52!",
       "author": 97
-    },
-    {
-      "id": 4,
-      "image": "https://tms-studapi-dev.s3.amazonaws.com/media/unnamed_5c5gF9H.jpeg",
-      "text": "Hi",
-      "date": "2021-10-07",
-      "lesson_num": 22,
-      "title": "b-52",
-      "author": 97
     }
   ]
     
-
   return (
     <>
-      <Header></Header>
+      <Header items={menuItems} onMenuChange={handleMenuChange}></Header>
       <Main></Main>
       <div className="container">
         <Card data={cardData}/>
         <CardList data={cardListData}/>
       </div>
-      <Menu items={menuItems}/>
+      <div className="container">
+        <Registration/>
+        <RegistrationFunc/>
+      </div>
+      <Menu items={menuItems} menuActive={menuActive}/>
 
     </>
   );

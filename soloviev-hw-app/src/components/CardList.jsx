@@ -12,7 +12,7 @@ class CardList extends React.Component {
 
   render() {
     return (
-      <ul>
+      <ul className="cardlist">
         {this.props.data.map((card, index) => {
            return (
            <li key={index}>

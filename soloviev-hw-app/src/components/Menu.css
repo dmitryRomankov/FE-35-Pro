@@ -1,26 +1,19 @@
 .menu {
   position: fixed;
-  width: 30%;
+  width: 300px;
   height: 100vh;
   top: 72px;
   left: 0;
-  /* transform: translateX(-100%); */
+  transform: translateX(-300px);
 }
 
-.menu .active {
-  transform: translateX(0);
+.menu.active {
+  transform: none;
 
-}
-
-.blur {
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(2px);
-  position: absolute;
 }
 
 .menu__content {
-  width: 30%;
+  width: 100%;
   height: 100%;
   background-color: rgb(241, 241, 241);
   display: flex;
@@ -41,16 +34,17 @@
   justify-content: center;
   margin-bottom: 10px;
   width: 100%;
+  height: 24px;
 }
 
 
 .menu__content ul li a {
   display: flex;
   justify-content: center;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   width: 100%;
 }
 
 .menu__content ul li a:hover {
-  background-color: #fff;
+  color: #999;
 }
