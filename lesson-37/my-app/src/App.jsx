@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CardBig } from "./components/CardBig/CardBig";
 import "./App.css";
 import { cardStoreBig } from "./data/cardBigInfo";
@@ -10,11 +10,15 @@ import { Page } from "./pages/page/Page";
 import { PageInfo } from "./data/pageInfo";
 import { Button } from "./components/Button/Button";
 import { Counter } from "./components/Counter/Counter";
+import { FormRegistarion } from "./components/Form/Form";
+import { Modal } from "./components/Modal/Modal";
 
 function App() {
+  const [modal, setModal] = useState(false);
+
   return (
-    <>
-      {/* HOMEWORK38 START  */}
+    <div className="container">
+      {/* HOMEWORK38 START 
       <div className="card-container">
         <div>
           {cardStoreBig.map((card, index) => {
@@ -52,11 +56,18 @@ function App() {
         {PageInfo.map((page, index) => {
           return <Page className="page" key={page.id} page={PageInfo[index]} />;
         })}
-      </div>
+      </div> */}
 
       {/* HOMEWORK38 END  */}
+
       {/* HOMEWORK40 START */}
-    </>
+      <FormRegistarion />
+      <Button onClick={() => setModal(true)} text="Sign In" />
+      {modal && (
+        <Modal close={() => setModal(false)} title={"congratulaiont"} />
+      )}
+      {/* HOMEWORK40 END */}
+    </div>
   );
 }
 

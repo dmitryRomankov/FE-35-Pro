@@ -1,0 +1,23 @@
+.modal-container {
+  position: fixed;
+  background-color: black;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.modal-info {
+  width: 500px;
+  padding: 5px;
+  background-color: aliceblue;
+  position: absolute;
+  height: 60px;
+  top: 40%;
+  right: 33%;
+}
+
+.modal__title {
+  text-align: center;
+}
