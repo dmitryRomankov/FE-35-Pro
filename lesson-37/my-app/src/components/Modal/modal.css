@@ -11,11 +11,12 @@
 .modal-info {
   width: 500px;
   padding: 5px;
-  background-color: aliceblue;
+  background-color: rgb(10, 10, 10);
   position: absolute;
   height: 60px;
   top: 40%;
   right: 33%;
+  padding-bottom: 20px;
 }
 
 .modal__title {
