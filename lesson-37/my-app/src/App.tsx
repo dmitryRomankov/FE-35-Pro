@@ -1,24 +1,26 @@
 import React from 'react';
 import { Title } from './components/title/title';
 import { Hamburger } from './components/burger/Hamburger';
-import './App.css';
 import Search from './components/search/search';
+import { Post } from "./components/post/post";
+import { Article } from "./components/article/article";
+import './App.css';
+import data from "./response_1668708166439.json";
+
+let Data = data.results;
+
 
 function App() {
   return (
     <div className='container'>
-        <Title text='Sign In'>
-			</Title>
       <nav className='header'>
         <Hamburger/>
         <Search/>
       </nav>
       
       <main>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.</p>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.</p>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.</p>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque perspiciatis veniam doloremque ullam asperiores dicta error et molestias sed! Architecto adipisci consequuntur culpa corporis quam dolor repellendus veniam enim ipsam.</p>
+      <Post data={Data[0]} />
+      <Article data={Data[0]}/>
       </main>
 
     </div>
