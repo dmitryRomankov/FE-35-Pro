@@ -1,4 +1,4 @@
-import {createContext, useCallback, useState} from "react"
+import {createContext, useEffect, useState} from "react"
 import {IThemeContext, IThemeProvider} from "../interfaces"
 import {DEFAULT_THEME} from "../variables"
 
@@ -8,13 +8,12 @@ const ThemeContext = createContext<IThemeContext | null>(null)
 const ThemeProvider = ({ children }: IThemeProvider) => {
 	const [theme, setTheme] = useState(DEFAULT_THEME)
 
-	const handleChange = useCallback((theme: string) => {
+	useEffect(() => {
 		document.documentElement.dataset.theme = theme
-		setTheme(theme)
-	}, [])
+	}, [theme])
 
 	return (
-		<ThemeContext.Provider value={{current: theme, onChange: handleChange}}>
+		<ThemeContext.Provider value={{current: theme, onChange: setTheme}}>
 			{children}
 		</ThemeContext.Provider>
 	)
