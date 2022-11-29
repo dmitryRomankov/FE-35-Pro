@@ -4,7 +4,7 @@ import {DEFAULT_THEME} from "../variables"
 
 const ThemeContext = createContext<IThemeContext | null>(null)
 
-// !!! Минимально сделал без синхронизации темы устройства и сохранения темы в локалсторадж
+// !!! Минимально сделал без синхронизации темы устройства и сохранения темы в сторадже
 const ThemeProver = ({ children }: IThemeProvider) => {
 	const [theme, setTheme] = useState(DEFAULT_THEME)
 
