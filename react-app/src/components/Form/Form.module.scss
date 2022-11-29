@@ -1,0 +1,59 @@
+.container {
+  background-color: var(--color-gray-light);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.label {
+  margin-bottom: 16px;
+  display: block;
+
+  span {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    color: var(--color-gray-middle);
+  }
+}
+
+.inputControl {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  padding: 12px 16px;
+  caret-color: var(--color-violet);
+}
+
+.inputClear {
+
+}
+
+.forgotPwd {
+  font-size: 1.2rem;
+  color: var(--color-gray-middle);
+}
+
+.error {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--color-red);
+}
+
+.submit {
+  margin-top: 32px;
+  padding: 12px 16px;
+  background-color: var(--color-violet);
+  color: var(--color-white);
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.signUp {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--color-gray-middle);
+}
