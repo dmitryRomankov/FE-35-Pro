@@ -1,43 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "./Form";
 import { Input } from "./Input";
 
-export class RegistrationFunc extends React.Component {
-  state = {
+export const RegistrationFunc = () => {
+  const [state, setState] = useState({
     isDefaultAvatar: false,
     isEditMode: false,
     password: '',
     email: '',
-    text: '',
-  };
+    name: '',
+  });
 
-  handleSubmit = (data) => {
+  const handleSubmit = (data) => {
     console.log('lifted state', data);
-    console.log('state', this.state);
+    console.log('state', state);
     console.log('REGISTRATION COMPLETE');
-
   };
 
-  handleChange = (event) => {
-    this.setState((prevState) => ({
+  const handleChange = (event) => {
+      setState((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
   };
-
-  render() {
-    return (
-      <Form onSubmit={this.handleSubmit} name="name" action="" method="24f">
-        <Input name="password" type="password" placeholder="password" onChange={this.handleChange} />
-        <Input name="email" type="email" placeholder="email" onChange={this.handleChange} />
-        <Input name="text" type="text" placeholder="text" onChange={this.handleChange} />
-        <Input type="submit" />
-
-        <p>Form Data</p>
-        <p>Password: {this.state.password}</p>
-        <p>Email: {this.state.email}</p>
-        <p>Text: {this.state.text}</p>
-      </Form>
-    );
-  }
+  
+  return (   
+    <Form onSubmit={handleSubmit} name="name" action="" method="">
+      <Input name="password" type="password" placeholder="password" onChange={handleChange} />
+      <Input name="email" type="email" placeholder="email" onChange={handleChange} />
+      <Input name="name" type="text" placeholder="name" onChange={handleChange} />
+      <Input type="submit" />
+      <p>Form Data</p>
+      <p>Password: {state.password}</p>
+      <p>Email: {state.email}</p>
+      <p>Name: {state.name}</p>
+    </Form>  
+  );
 };

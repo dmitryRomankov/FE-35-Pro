@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import "./Form.css";
 
 export class Form extends Component {
-  state = {
-    property: 'string',
-  }
 
   handleSubmitForm = (e) => {
     e.preventDefault();
@@ -16,7 +13,7 @@ export class Form extends Component {
     return (
       <form onSubmit={this.handleSubmitForm} method={method} action={action} name={name} className="form">
         <div className="form__container">
-          <h2>Inputs</h2>
+          <h2>Registration form</h2>
           {children}
         </div>
       </form>

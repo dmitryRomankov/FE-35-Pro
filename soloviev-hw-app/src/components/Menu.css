@@ -1,19 +1,28 @@
 .menu {
   position: fixed;
-  width: 300px;
+  align-self: flex-start;
+  width: 100vw;
   height: 100vh;
   top: 72px;
   left: 0;
-  transform: translateX(-300px);
+  transform: translateX(-130%);
 }
 
 .menu.active {
-  transform: none;
+  transform: translateX(-30%);
 
 }
 
+.blur {
+  width: 100vw;
+  height: 100vh;
+  left: 30%;
+  backdrop-filter: blur(2px);
+  position: absolute;
+}
+
 .menu__content {
-  width: 100%;
+  width: 30%;
   height: 100%;
   background-color: rgb(241, 241, 241);
   display: flex;

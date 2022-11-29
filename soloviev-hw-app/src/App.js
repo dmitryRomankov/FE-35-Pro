@@ -69,10 +69,9 @@ function App() {
         <CardList data={cardListData}/>
       </div>
       <div className="container">
-        <Registration/>
         <RegistrationFunc/>
       </div>
-      <Menu items={menuItems} menuActive={menuActive}/>
+      <Menu items={menuItems} menuActive={menuActive} setActive={setMenuActive}/>
 
     </>
   );
