@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {ThemeProver} from "./context/ThemeContext"
+import {ThemeProvider} from "./context/ThemeContext"
 
 import Header from "./components/Header/Header"
 import Blog from "./pages/blog"
@@ -9,12 +9,12 @@ import SignIn from "./pages/signIn"
 
 function App() {
   return (
-    <ThemeProver>
+    <ThemeProvider>
       <Header/>
       <Blog/>
       <Read/>
       <SignIn/>
-    </ThemeProver>
+    </ThemeProvider>
   )
 }
 
