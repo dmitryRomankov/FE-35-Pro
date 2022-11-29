@@ -1,93 +1,99 @@
-import React, { useState, Component } from "react";
+import React, { useState, Component, useEffect, useCallback, useMemo, useContext, useRef, createRef } from "react";
 import { Button } from "./components/Button";
 import { Welcome } from "./pages/Welcome";
 import { Form } from "./components/Form/Form";
 import { Input } from "./components/Input/Input";
 import { Counter } from "./components/Counter/Counter";
 import { Avatar } from "./components/Avatar/Avatar";
+import { withTheme } from "./components/Hoc/withTheme";
+import ThemeProvider from "./components/Hoc/ThemeProvider"
+import { Registration } from "./pages/Registration/Registration";
+import { Tabs } from "./components/Tabs/Tabs";
+import { Tab } from "./components/Tabs/Tab";
+import { ThemeContext } from "./components/Context/Context";
 import "./App.css"
 
-const img1 =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDhDMM5MgwCJi0f3XZrI2HAM_Fx9uZmCqbKQ&usqp=CAU";
+const App = () => {
+  const theme = useContext(ThemeContext);
 
-const users = [
-  { name: "Bob", id: 1 },
-  { name: "Alex", id: 2 },
-  { name: "Maria", id: 3 },
-  { name: "Karl", id: 4 },
-  { name: "Helen", id: 5 },
-];
+  const ref = useRef();
+  const ref1 = createRef();
 
-const defaultAvatar =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQrF3t4HTqY8rjh54a9PrakBAZsJ5gPFv2CQ&usqp=CAU";
+  // Rules of hooks
+  // 1. Call only on the top level
+  // 2. Only in function components
+  // 3. Out of conditions and cycles
 
-const DefaultAvatar = () => (
-  <img src={defaultAvatar} alt="Default Avatar" className="default" />
-);
+  useEffect(() => {
+    if(ref.current) {
+      ref.current.focus();
+    }
+  }, [])
 
-class App extends Component {
-  state = {
-    isDefaultAvatar: false,
-  };
-
-  handleChange = (event) => {
-    this.setState((prevState) => ({
-      ...prevState,
-      [event.target.name]: event.target.value,
-    }));
-  };
-
-  handleSubmit = (data) => {
-    console.log('lifted state', data);
-    console.log('state', this.state);
-  };
-
-  handleChangeAvatar = () =>
-    this.setState({ isDefaultAvatar: !this.state.isDefaultAvatar });
-
-
-  render() {
-
-    return (
-      <div className="react-example">
-
-        {/* Inputs and form handling */}
-        <Form onSubmit={this.handleSubmit} name="name" action="" method="24f">
-          <Input name="password" type="password" placeholder="password" onChange={this.handleChange} />
-          <Input name="email" type="email" placeholder="email" onChange={this.handleChange} />
-          <Input name="text" type="text" placeholder="text" onChange={this.handleChange} />
-          <Input type="submit" />
-        </Form>
-
-        {/*Rendering of list*/}
-        <ul className="list">
-          <h2>List</h2>
-          {users.map((user) => {
-            return (
-              <li key={user.id}>{user.name}</li>
-            )
-          })}
-        </ul>
-
-        {/* Counter */}
-        <div className="counter">
-          <h2>Counter</h2>
-          <Counter />
-        </div>
-
-        {/* Conditional Rendering */}
-
-        <div>
-          <h2>Conditional rendering</h2>
-          {!this.state.isDefaultAvatar && <Avatar src={img1} />}
-          {this.state.isDefaultAvatar && <DefaultAvatar />}
-
-          {/* {this.state.isDefaultAvatar ? <Avatar src={img1} /> : <DefaultAvatar />} */}
-          <button onClick={this.handleChangeAvatar}>Change avatar</button>
-        </div>
-      </div>
-    )
-  }
+  return (
+    <div style={{ background: theme.dark.background, color: theme.dark.textColor}}>
+      <input ref={ref} />
+    </div>
+  )
 }
+
+
+// class App extends Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       posts: [],
+//       loading: false,
+//     };
+//   }
+
+//   componentDidMount() {
+//   }
+
+//   componentDidUpdate(prevProps, prevState) {
+//     console.log('prevProps', prevProps);
+//     console.log('prevState', prevState);
+//   }
+
+//   // componentWillUnmount() {
+//   //   clearTimeout(timerId)
+//   //   api.unsubscribe()
+//   //   removeEventListener();
+//   // };
+
+//   hadleAddNewPost = () => {
+//   const newpost = {
+//     author: 123,
+//     date: "2021-10-08",
+//     id: 11,
+//     image: "https://tms-studapi-dev.s3.amazonaws.com/media/Niira.jpg",
+//     lesson_num: 50,
+//     text: "my sisters cat",
+//     title: "New post",
+//   }
+
+//   this.setState({ posts: [...this.state.posts, newpost] })
+// }
+
+//   render() {
+//     return (
+//       <div className="App">
+//         <div className="container">
+//         {!this.state.loading && this.state.posts.map((post) => {
+//           return (
+//             <div key={post.id} className="post">
+//               <div key={post.id}>{post.title}</div>
+//               <img className="post__image" src={post.image} />
+//             </div>
+//               )
+//             })}
+//             {this.state.loading && <div>Loading...</div>}
+//             </div>
+//           <button onClick={this.hadleAddNewPost}>Add post</button>
+//       </div>
+//     )
+//   }
+// }
 
 export default App;
