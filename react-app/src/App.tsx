@@ -11,9 +11,10 @@ function App() {
   return (
     <ThemeProvider>
       <Header/>
-      <Blog/>
+
+      {/*<Blog/>*/}
       <Read/>
-      <SignIn/>
+      {/*<SignIn/>*/}
     </ThemeProvider>
   )
 }
