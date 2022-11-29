@@ -1,3 +1,5 @@
+import {ReactNode} from "react"
+
 interface IPost {
 	id?: number
 	image?: string
@@ -21,9 +23,20 @@ interface IPostControl {
 	sizeIcon: number
 }
 
+interface IThemeProvider {
+	children: ReactNode
+}
+
+interface IThemeContext {
+	current: string
+	onChange: (prev: string) => void
+}
+
 export type {
 	IPost,
 	ILabel,
 	IForm,
 	IPostControl,
+	IThemeProvider,
+	IThemeContext,
 }
