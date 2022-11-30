@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Page.css";
 export function Page(props) {
   return (
     <div className="content">
