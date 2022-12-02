@@ -1,12 +1,13 @@
 import React from "react";
 import "../Posts/posts.css";
+
 type Props = {
   data: any;
 };
 
-export function PostsList(props: Props): JSX.Element {
+export function PostsPreview(props: Props): JSX.Element {
   return (
-    <div className="posts-wrap">
+    <div>
       <div className="posts-item-image">
         <img className="post-image" src={props.data.image} alt="#" />
       </div>

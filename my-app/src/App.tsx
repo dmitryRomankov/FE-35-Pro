@@ -11,9 +11,8 @@ console.log(postsData);
 function App() {
   return (
     <>
-      {/* <Title content="Sign In" /> */}
       <Header />
-      <Post data={postsData[0]} />
+      <Title content="Blog" />
       <Posts data={postsData} />
     </>
   );

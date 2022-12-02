@@ -20,5 +20,18 @@ code {
 }
 .container {
   margin: auto;
-  padding: 0 55px;
+  padding: 0 155px;
+}
+.title {
+  margin: 20px 0;
+}
+.posts-wrapper {
+  margin: auto;
+  padding: 0 155px;
+}
+.posts-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  margin-bottom: 50px;
 }
