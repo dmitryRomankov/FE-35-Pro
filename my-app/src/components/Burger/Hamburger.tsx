@@ -1,5 +1,5 @@
 import { Component, useState } from "react";
-import { isPropertySignature } from "typescript";
+import { Link } from "react-router-dom";
 import "../Burger/Hamburger.css";
 import "../cdn.css";
 import { Header } from "../Header/Header";
@@ -22,7 +22,9 @@ export function Hamburger(props) {
         <nav className="burger-navigation">
           <ul className="navigation-list">
             <li className="nav-item">{props.name}</li>
-            <li className="nav-item">Home</li>
+            <Link to={"/"}>
+              <li className="nav-item">Home</li>
+            </Link>
             <li className="nav-item">Favorite</li>
           </ul>
         </nav>

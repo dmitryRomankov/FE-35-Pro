@@ -4,6 +4,9 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 .header-input {
   width: 100%;
@@ -26,6 +29,7 @@
   text-align: center;
   margin: auto;
   padding: 0 55px 0 0;
+  cursor: pointer;
 }
 .search {
   border-left: 1px solid rgb(97, 97, 97);

@@ -18,8 +18,8 @@
 }
 
 .posts-small-image {
-  width: 170px;
-  height: 100px;
+  width: 180px;
+  height: 130px;
 }
 .posts-small-image img {
   width: 100%;
@@ -32,7 +32,7 @@
   margin-bottom: 10px;
 }
 .posts-small-text {
-  width: 300px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   margin-right: 20px;

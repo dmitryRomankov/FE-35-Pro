@@ -1,5 +1,5 @@
-import exp from "constants";
 import React from "react";
+import { Link } from "react-router-dom";
 import { Hamburger } from "../Burger/Hamburger";
 import "../Header/Header.css";
 
@@ -12,7 +12,9 @@ export function Header() {
       <div className="search">
         <i className="fa-solid fa-magnifying-glass"></i>
       </div>
-      <div className="userName">{userName} </div>
+      <Link to={"/SignIn"}>
+        <div className="userName">{userName} </div>
+      </Link>
     </div>
   );
 }

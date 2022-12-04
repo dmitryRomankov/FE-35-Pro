@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../Post/post.css";
 
 type Props = {
@@ -7,7 +8,7 @@ type Props = {
 
 export function Post(props: Props): JSX.Element {
   return (
-    <div className="post-wrap">
+    <div className="post-wrap" id={props.data.id}>
       <div className="text-wrap">
         <div className="post-date">{props.data.date} </div>
         <div className="post-tittle">{props.data.title}</div>
