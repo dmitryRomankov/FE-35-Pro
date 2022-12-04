@@ -1,0 +1,21 @@
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.header__list{
+  display: flex;
+  gap: 16px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+.icon__theme{
+  cursor: pointer;
+}

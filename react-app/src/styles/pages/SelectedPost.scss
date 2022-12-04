@@ -1,0 +1,19 @@
+.notFoundPost {
+  text-align: center;
+  margin-top: 100px;
+
+}
+.card__selectedPost {
+  width: 100%;
+  box-shadow: 2px 2px 20px 3px rgb(0 0 0 / 15%);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card__select-img {
+  object-fit: contain;
+  width: 100%;
+  height: 400px;
+}

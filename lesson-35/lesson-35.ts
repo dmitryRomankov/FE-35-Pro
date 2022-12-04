@@ -44,7 +44,7 @@ type TodoPreview = Pick<Todo, 'title' | 'description'>;
 
 const todo: TodoPreview = {
     description: 'Desc',
-    title: 'Title',
+    title: 'title',
 };
 
 type Todo1 = Omit<Todo, 'description' | 'title'>;
