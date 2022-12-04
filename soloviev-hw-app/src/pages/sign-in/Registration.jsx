@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Form } from "./Form";
-import { Input } from "./Input";
+import { Form } from "./form/Form";
+import { Input } from "./input/Input";
 
-export const RegistrationFunc = () => {
+export const Registration = () => {
   const [state, setState] = useState({
     isDefaultAvatar: false,
     isEditMode: false,
@@ -29,7 +29,7 @@ export const RegistrationFunc = () => {
       <Input name="password" type="password" placeholder="password" onChange={handleChange} />
       <Input name="email" type="email" placeholder="email" onChange={handleChange} />
       <Input name="name" type="text" placeholder="name" onChange={handleChange} />
-      <Input type="submit" />
+      <Input type="submit"/>
       <p>Form Data</p>
       <p>Password: {state.password}</p>
       <p>Email: {state.email}</p>

@@ -1,29 +1,24 @@
 import React from "react";
 import './Menu.css';
+import { Link } from "react-router-dom";
 
-class Menu extends React.Component {
+export const Menu = (props) => {
 
-
-  render() {
-    return (
-      <div className={this.props.menuActive ? 'menu active' : 'menu'} >
-        <div className="blur">
-          <div className="menu__content">
-            <ul>
-              {this.props.items.map((item, index) => {
-                return (
-                <li key={index}>
-                  <a href={item.href}>{item.value}</a>
-                </li>
-                )
-              })}
-            </ul>
-          </div>
+  return (
+    <div className={props.menuActive ? 'menu active' : 'menu'} >
+      <div className="blur">
+        <div className="menu__content">
+          <ul>
+            {props.items.map((item) => {
+              return (
+              <li key={item.id}>
+                <Link reloadDocument to={item.link}>{item.value}</Link>
+              </li>
+              )
+            })}
+          </ul>
         </div>
-
       </div>
-    );
-  }
-}
-
-export default Menu;
+    </div>
+  );
+};

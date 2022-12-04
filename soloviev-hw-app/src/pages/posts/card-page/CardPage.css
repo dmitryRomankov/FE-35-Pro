@@ -1,0 +1,18 @@
+.card-page .card{
+  width: 480px;
+  height: 480px;
+}
+
+.card-page .card .data-block {
+  display: flex;
+  flex-direction: column;
+  max-width: 264px;
+  font-size: 1.6rem;
+  margin-right: 10px;
+}
+
+.card-page .card .card-image img {
+  width: 196px;
+  height: 196px;
+  border-radius: 6px;
+}
