@@ -1,20 +1,20 @@
-import React from 'react'
-
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 import {ThemeProvider} from "./context/ThemeContext"
 
 import Header from "./components/Header/Header"
-import Blog from "./pages/blog"
-import Read from "./pages/blog/read"
-import SignIn from "./pages/signIn"
+import {routes} from "./routes/routes"
 
 function App() {
   return (
     <ThemeProvider>
-      <Header/>
-
-      {/*<Blog/>*/}
-      <Read/>
-      {/*<SignIn/>*/}
+      <BrowserRouter>
+        <Header/>
+        <Routes>
+          {routes.map((route, i) =>
+            <Route key={i} {...route}/>
+          )}
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   )
 }

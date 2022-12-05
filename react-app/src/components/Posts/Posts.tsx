@@ -1,4 +1,5 @@
 import db from "../../db/db.json"
+import {Link} from "react-router-dom"
 
 import PostPresentation from "./PostPresentation"
 import Post from "./Post"
@@ -15,12 +16,20 @@ const Posts = () => {
 				<PostPresentation {...postPresentation}/>
 
 				<div className={styles.posts}>
-					{rest.map(({ id, ...rest }) => <Post key={id} {...rest}/>)}
+					{rest.map(({ id, ...rest }) =>
+						<Link key={id} to={`/blog/${id}`}>
+							<Post key={id} {...rest}/>
+						</Link>
+					)}
 				</div>
 			</div>
 
 			<div className={styles.postsCompact}>
-				{rest.map(({ id, ...rest }) => <PostCompact key={id} {...rest}/>)}
+				{rest.map(({ id, ...rest }) =>
+					<Link key={id} to={`/blog/${id}`}>
+						<PostCompact key={id} {...rest}/>
+					</Link>
+				)}
 			</div>
 		</div>
 	)

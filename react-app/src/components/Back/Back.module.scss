@@ -1,4 +1,4 @@
-.container {
+.button {
   margiN: 0 0 -16px -8px;
   color: var(--color-gray);
 
@@ -7,6 +7,7 @@
   gap: 8px;
 
   list-style: initial;
+  font-size: 1.6rem;
 
   &li:nth-child(1) {
     list-style: none;

@@ -32,6 +32,14 @@ interface IThemeContext {
 	onChange: (prev: string) => void
 }
 
+interface IHamburger {
+	onChange: (prev: any) => void
+}
+
+interface INav {
+	visible: boolean
+}
+
 export type {
 	IPost,
 	ILabel,
@@ -39,4 +47,6 @@ export type {
 	IPostControl,
 	IThemeProvider,
 	IThemeContext,
+	IHamburger,
+	INav,
 }
