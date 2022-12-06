@@ -1,15 +1,21 @@
 .header {
-  background-color: rgb(60, 95, 249);
+  background-color: rgb(32, 62, 195);
   z-index: 50;
   display: flex;
   justify-content: space-between;
   text-align: center;
-  margin-top: 30px;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 .header-input {
   width: 100%;
   border: none;
-  background-color: rgba(96, 125, 255, 0.729);
+  background-color: rgb(80, 112, 255);
+  outline: none;
+  font-size: 20px;
+  color: #fff;
+  padding: 0 25px;
 }
 .fa-magnifying-glass {
   color: #fff;
@@ -22,4 +28,9 @@
   color: #fff;
   text-align: center;
   margin: auto;
+  padding: 0 55px 0 0;
+  cursor: pointer;
+}
+.search {
+  border-left: 1px solid rgb(97, 97, 97);
 }

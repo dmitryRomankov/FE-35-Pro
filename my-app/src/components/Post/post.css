@@ -1,0 +1,33 @@
+.post-wrap {
+  display: flex;
+  justify-content: space-around;
+}
+.post-image {
+  min-width: 350px;
+  max-height: 360px;
+  overflow: hidden;
+  position: relative;
+  object-fit: contain;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.text-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-right: 30px;
+  margin-bottom: 50px;
+}
+.post-tittle {
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.post-date {
+  color: rgb(117, 117, 117);
+  font-size: 16px;
+}

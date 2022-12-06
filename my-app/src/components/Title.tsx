@@ -3,5 +3,9 @@ type props = {
 };
 
 export function Title({ content }: props) {
-  return <h1>{content}</h1>;
+  return (
+    <div className="container">
+      <h1 className="title">{content}</h1>
+    </div>
+  );
 }
