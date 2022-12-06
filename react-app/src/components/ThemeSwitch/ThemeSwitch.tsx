@@ -1,4 +1,4 @@
-import {useContext} from "react"
+import {memo, useContext} from "react"
 import {ThemeContext} from "../../context/ThemeContext"
 
 import styles from "./ThemeSwitcher.module.scss"
@@ -17,4 +17,4 @@ const ThemeSwitch = () => {
 	)
 }
 
-export default ThemeSwitch
+export default memo(ThemeSwitch)

@@ -1,5 +1,5 @@
+import {memo} from "react"
 import Avatar from "../../Avatar/Avatar"
-
 import styles from "./Profile.module.scss"
 
 const Profile = () => {
@@ -12,4 +12,4 @@ const Profile = () => {
 	)
 }
 
-export default Profile
+export default memo(Profile)

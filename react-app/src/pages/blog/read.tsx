@@ -1,19 +1,19 @@
-import React from "react"
+import {useParams} from "react-router-dom"
+import db from "../../db/db.json"
 
 import Layout from "../../components/Layout/Layout"
 import Back from "../../components/Back/Back"
 import Title from "../../components/Title/Title"
 import PostControl from "../../components/PostControl/PostControl"
+import PostPagination from "../../components/Pagination/PostPagination"
 
 import styles from "../../styles/pages/blog/read.module.scss"
 
 import {IPost} from "../../interfaces"
-import db from "../../db/db.json"
-import PostPagination from "../../components/Pagination/PostPagination";
 
 const Read = () => {
-	const id = 1
-	const post = db.results.find((post: IPost) => post.id === id)
+	const {id} = useParams()
+	const post = db.results.find((post: IPost) => post.id === Number(id))
 
 	return (
 		<Layout>
