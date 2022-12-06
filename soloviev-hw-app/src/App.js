@@ -1,82 +1,48 @@
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Menu from "./components/Menu";
-import Card from "./components/Card";
-import CardList from "./components/CardList";
+import { React } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Header } from "./components/Header";
+import { Main } from "./pages/main/Main";
+import { Menu } from "./components/Menu";
+import { menuLinks } from "./constants";
+import { CardList } from "./pages/posts/CardList";
+import { CardPage } from "./pages/posts/card-page/CardPage";
+import { Registration } from "./pages/sign-in/Registration";
+import { useState } from "react";
+import { Success } from "./pages/success/Success";
+import { PageNotFound } from "./pages/page-not-found/PageNotFound";
+import { ThemeContextProvider } from "./components/Context/Context";
+// import { ThemeContext } from "./components/Context/Context";
 
 import './App.css';
 
-// import {useState} from 'react';
-
-
 function App() {
-  // const [menuActive, setMenuActive] = useState(true);
+  const [menuActive, setMenuActive] = useState(false);
 
-  const menuItems = [
-    {value: "Main", href: "/main"}, {value: "Posts", href: "/posts"}, {value: "Sign In", href: "/sign-in"}, {value: "Contacts", href: "/contacts"}
-  ]
+  const handleMenuChange = () => {
+    setMenuActive(!menuActive)
+  }
 
-  const cardData = {
-    "id": 0,
-    "image": "https://tms-studapi-dev.s3.amazonaws.com/media/unnamed_5c5gF9H.jpeg",
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    "date": "2021-12-12",
-    "lesson_num": 0,
-    "title": "Talk with yourself",
-    "author": 0
-    }
-
-  const cardListData = [
-    {
-      "id": 1,
-      "image": "https://tms-studapi-dev.s3.amazonaws.com/media/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2021-08-04_%D0%B2_16.11.10.png",
-      "text": "фыв",
-      "date": "2021-10-06",
-      "lesson_num": 123,
-      "title": "фывфывфыв",
-      "author": 7
-    },
-    {
-      "id": 2,
-      "image": "https://tms-studapi-dev.s3.amazonaws.com/media/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2021-08-04_%D0%B2_17.37.38.png",
-      "text": "Text",
-      "date": "2021-10-07",
-      "lesson_num": 48,
-      "title": "Title",
-      "author": 7
-    },
-    {
-      "id": 3,
-      "image": "https://tms-studapi-dev.s3.amazonaws.com/media/unnamed.jpeg",
-      "text": "Hello!",
-      "date": "2021-10-07",
-      "lesson_num": 23,
-      "title": "B-52!",
-      "author": 97
-    },
-    {
-      "id": 4,
-      "image": "https://tms-studapi-dev.s3.amazonaws.com/media/unnamed_5c5gF9H.jpeg",
-      "text": "Hi",
-      "date": "2021-10-07",
-      "lesson_num": 22,
-      "title": "b-52",
-      "author": 97
-    }
-  ]
-    
+  const Favorites = () => <div><h2>Favorites posts</h2></div>
 
   return (
-    <>
-      <Header></Header>
-      <Main></Main>
-      <div className="container">
-        <Card data={cardData}/>
-        <CardList data={cardListData}/>
+    <BrowserRouter>
+      <div className="App">
+        <ThemeContextProvider>
+            <Header items={menuLinks} menuActive={menuActive} onMenuChange={handleMenuChange}></Header>
+        </ThemeContextProvider>
+        <Menu items={menuLinks} menuActive={menuActive} setActive={setMenuActive}/>
+        <Routes>
+          <Route path="/" element={<Main />}/>
+          <Route path="/posts" element={<CardList/>}/>
+          <Route path="/posts/:id" element={<CardPage/>}/>
+          <Route path="/sign-in" element={<Registration/>}/>
+          <Route path="/success" element={<Success/>}/>
+          <Route path="/favorites" element={<Favorites/>}/>
+          <Route path="/*" element={<PageNotFound />}/>
+        </Routes>
       </div>
-      <Menu items={menuItems}/>
+    </BrowserRouter>
 
-    </>
   );
 }
 

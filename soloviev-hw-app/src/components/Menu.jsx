@@ -1,36 +1,24 @@
 import React from "react";
 import './Menu.css';
+import { Link } from "react-router-dom";
 
+export const Menu = (props) => {
 
-
-class Menu extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: true
-    }
-  }
-
-  render() {
-    return (
-      // <div className={this.state.active ? 'menu active' : 'menu'}>
-      <div className='menu active'>
-        <div className="blurrrrrrrr">
-          <div className="menu__content">
-            <ul>
-              {this.props.items.map((item, index) => {
-                return (
-                <li key={index}>
-                  <a href={item.href}>{item.value}</a>
-                </li>
-                )
-              })}
-            </ul>
-          </div>
+  return (
+    <div className={props.menuActive ? 'menu active' : 'menu'} onClick={() => props.setActive(false)}>
+      <div className="blur">
+        <div className="menu__content" onClick={event => event.stopPropagation()}>
+          <ul>
+            {props.items.map((item) => {
+              return (
+              <li key={item.id}>
+                <Link reloadDocument to={item.link}>{item.value}</Link>
+              </li>
+              )
+            })}
+          </ul>
         </div>
       </div>
-    );
-  }
-}
-
-export default Menu;
+    </div>
+  );
+};
