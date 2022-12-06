@@ -1,6 +1,6 @@
 .form {
-  height: 100vh;
-  background-color:#f3f3f3;
+  display: flex;
+  /* background-color:#f3f3f3; */
 }
 
 .form__container {
@@ -8,7 +8,5 @@
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  justify-content: space-between;
   gap: 30px;
-  
 }

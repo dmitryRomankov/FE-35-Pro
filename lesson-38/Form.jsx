@@ -4,8 +4,9 @@ import "./form.css";
 
 export class Form extends Component {
   state = {
-    property: 'string',
+    propert: 'string',
   }
+
 
   handleSubmitForm = (e) => {
     e.preventDefault();
@@ -20,6 +21,7 @@ export class Form extends Component {
           <h2>Inputs</h2>
           {children}
         </div>
+        <Button text="Sumbit" />
       </form>
     );
   }

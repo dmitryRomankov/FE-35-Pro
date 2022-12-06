@@ -1,0 +1,22 @@
+.article-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px 0px;
+}
+.article {
+    max-width: 500px;
+}
+.image-article {
+    width: 300px;
+}
+.image-art{
+    max-height: 200px;
+    max-width: 300px;
+    width: 100%;
+}
+.article-date {
+    color: rgb(141, 121, 121);
+    font-size: 10px;
+  }
