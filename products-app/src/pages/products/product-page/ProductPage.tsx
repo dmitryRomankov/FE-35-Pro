@@ -17,8 +17,6 @@ export const ProductPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(location)
-
   useEffect(() => {
     const fetchProduct = async () => {
       const response = await fetch(`${productsApi}/${id}`);
@@ -31,13 +29,17 @@ export const ProductPage = () => {
 
   const handleGoBack = () => navigate(-1);
 
+  const handleChosePost =  (e) => {
+    console.log(e.target.src);
+  };
+
   return (
     <div>
       <button onClick={handleGoBack}>Back</button>
       <div>{product.name}</div>
       <div>{product.id}</div>
       <div>{product.description}</div>
-      <img src={product.picture} alt="Product" />
+      <img onClick={handleChosePost} src={product.picture} alt="Product" />
     </div>
   );
 };
