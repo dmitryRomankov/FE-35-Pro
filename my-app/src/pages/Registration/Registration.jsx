@@ -6,14 +6,14 @@ export class Registration extends React.Component {
   state = {
     isDefaultAvatar: false,
     isEditMode: false,
-    password: '',
-    email: '',
-    text: '',
+    password: "",
+    email: "",
+    text: "",
   };
 
   handleSubmit = (data) => {
-    console.log('lifted state', data);
-    console.log('state', this.state);
+    console.log("lifted state", data);
+    console.log("state", this.state);
   };
 
   handleChange = (event) => {
@@ -26,9 +26,24 @@ export class Registration extends React.Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit} name="name" action="" method="24f">
-        <Input name="password" type="password" placeholder="password" onChange={this.handleChange} />
-        <Input name="email" type="email" placeholder="email" onChange={this.handleChange} />
-        <Input name="text" type="text" placeholder="text" onChange={this.handleChange} />
+        <Input
+          name="password"
+          type="password"
+          placeholder="password"
+          onChange={this.handleChange}
+        />
+        <Input
+          name="email"
+          type="email"
+          placeholder="email"
+          onChange={this.handleChange}
+        />
+        <Input
+          name="text"
+          type="text"
+          placeholder="text"
+          onChange={this.handleChange}
+        />
         <Input type="submit" />
 
         <p>Form Data</p>
@@ -38,5 +53,4 @@ export class Registration extends React.Component {
       </Form>
     );
   }
-};
-
+}

@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
-  max-width: 200px;
+  border: 1px solid white;
+  width: 200px;
+  height: 180px;
   padding: 10px;
   margin-bottom: 30px;
 }

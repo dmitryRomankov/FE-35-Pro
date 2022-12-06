@@ -1,4 +1,4 @@
-import React, { useState, Component, useEffect, useCallback } from "react";
+import React, { useState, Component, useEffect, useCallback, useMemo, useContext, useRef, createRef } from "react";
 import { Button } from "./components/Button";
 import { Welcome } from "./pages/Welcome";
 import { Form } from "./components/Form/Form";
@@ -10,82 +10,33 @@ import ThemeProvider from "./components/Hoc/ThemeProvider"
 import { Registration } from "./pages/Registration/Registration";
 import { Tabs } from "./components/Tabs/Tabs";
 import { Tab } from "./components/Tabs/Tab";
+import { ThemeContext } from "./components/Context/Context";
 import "./App.css"
 
 const App = () => {
-  // const [state, setState] = useState({
-  //   posts: [],
-  //   loading: false,
-  //   name: '',
-  // });
+  const theme = useContext(ThemeContext);
 
-  // useEffect(() => {
-  //   (async() => {
-  //     setState((prevState) => ({
-  //       ...prevState,
-  //       loading: true
-  //     }))
-  //     const response = await fetch('response_1668708166439.json');
-  //     const posts = await response.json();
+  const ref = useRef();
+  const ref1 = createRef();
 
-  //     setState((prevState) => ({
-  //       ...prevState,
-  //       posts: posts.results,
-  //       loading: false
-  //     }))
+  // Rules of hooks
+  // 1. Call only on the top level
+  // 2. Only in function components
+  // 3. Out of conditions and cycles
 
-  //     })();
-
-  //     console.log('Mounted')
-  // }, []);
-
-
-  // const handleAddNewPost = useCallback(() => {
-  //   const newpost = {
-  //     author: 123,
-  //     date: "2021-10-08",
-  //     id: 11,
-  //     image: "https://tms-studapi-dev.s3.amazonaws.com/media/Niira.jpg",
-  //     lesson_num: 50,
-  //     text: "my sisters cat",
-  //     title: "New post",
-  //   }
-
-  //   setState((prevState) => ({
-  //     ...prevState,
-  //     posts: [...prevState.posts, newpost]
-  //   }))
-  // }, [id])
-
-  //   const hadleAddNewPost = () => {
-  //     const newpost = {
-  //       author: 123,
-  //       date: "2021-10-08",
-  //       id: 11,
-  //       image: "https://tms-studapi-dev.s3.amazonaws.com/media/Niira.jpg",
-  //       lesson_num: 50,
-  //       text: "my sisters cat",
-  //       title: "New post",
-  //     }
-  //   }
+  useEffect(() => {
+    if(ref.current) {
+      ref.current.focus();
+    }
+  }, [])
 
   return (
-    <div className="App">
-      <Tabs>
-        <Tab title="All">
-          <div>All tab</div>
-        </Tab>
-        <Tab title="My Favorites">
-          <div>My Favorites Tab</div>
-        </Tab>
-        <Tab title="Popular">
-          <div>Popular tab</div>
-        </Tab>
-      </Tabs>
+    <div style={{ background: theme.dark.background, color: theme.dark.textColor}}>
+      <input ref={ref} />
     </div>
   )
-
 }
+
 
 // class App extends Component {
 //   constructor(props) {

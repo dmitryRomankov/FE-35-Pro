@@ -1,0 +1,26 @@
+.conatiner-search {
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.container-small {
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.container-Serach__title {
+  font-size: 50px;
+}
+.search-input {
+  margin-bottom: 20px;
+}
+.search-input input {
+  padding: 10px;
+  width: 300px;
+}
