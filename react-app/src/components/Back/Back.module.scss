@@ -1,0 +1,14 @@
+.container {
+  margiN: 0 0 -16px -8px;
+  color: var(--color-gray);
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  list-style: initial;
+
+  &li:nth-child(1) {
+    list-style: none;
+  }
+}

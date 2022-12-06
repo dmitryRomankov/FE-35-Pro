@@ -1,37 +1,21 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Button } from "../Button";
 import "./counter.css";
 
-export class Counter extends Component {
-  constructor(props) {
-    super(props);
+export const Counter = () => {
+  const [count, setCount] = useState(0);
 
-    this.state = {
-      count: 0,
-    };
+  const handleIncrease = () => setCount(count + 1);
 
-    this.handleIncrease = this.handleIncrease.bind(this);
-  }
+  const handleDecrease = () => setCount((prevState) => prevState - 1);
 
-  handleIncrease() {
-    this.setState((prevState) => ({
-      count: prevState.count + 1,
-    }));
-  }
-
-  handleDecrease = () => {
-    this.setState({ count: this.state.count - 1 });
-  };
-
-  render() {
-    return (
-      <div className="example">
-        <p>{this.state.count}</p>
-        <div className="example__buttons">
-          <Button text="Increase" onClick={this.handleIncrease} />
-          <Button text="Decrease" onClick={this.handleDecrease} />
-        </div>
+  return(
+    <div className="example">
+      <p>{count}</p>
+      <div className="example__buttons">
+        <Button text="Increase" onClick={handleIncrease} />
+        <Button text="Decrease" onClick={handleDecrease} />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};

@@ -1,0 +1,7 @@
+const MIN_VALUE_LOGIN = 3
+const MIN_VALUE_PWD = 6
+
+export {
+	MIN_VALUE_LOGIN,
+	MIN_VALUE_PWD,
+}

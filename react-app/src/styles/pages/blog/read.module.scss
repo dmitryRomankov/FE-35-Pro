@@ -1,0 +1,12 @@
+@import "src/styles/mixins/post-bottom";
+
+.poster {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.description {
+  color: var(--color-gray);
+}

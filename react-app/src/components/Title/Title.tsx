@@ -1,7 +1,7 @@
 import styles from "./Title.module.scss"
 
 type Props = {
-	text: string
+	text: string | undefined
 }
 
 const Title = ({ text }: Props) => (
