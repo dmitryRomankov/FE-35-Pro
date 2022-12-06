@@ -1,0 +1,40 @@
+html {
+  color-scheme: var(--scheme);
+  color: var(--color-text-theme);
+  background-color: var( --color-background-theme);
+}
+
+:root {
+  --color-violet-light: #eceefa;
+  --color-violet: #2436a7;
+
+  --color-white: #fff;
+  --color-gray: gray;
+
+  --color-dark: #000;
+
+}
+
+:root[data-theme="light"] {
+  --scheme: light;
+  --color-text-theme: var(--color-dark);
+  --color-background-theme: var(--color-white);
+}
+
+:root[data-theme="dark"] {
+  --scheme: dark;
+  --color-text-theme: var(--color-white);
+  --color-background-theme: var(--color-dark);
+}
+
+.custom__input {
+  background-color: var(--color-violet-light);
+  padding: 8px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.labelStyle {
+  font-size: 1.2rem;
+  color: var(--color-gray);
+}
