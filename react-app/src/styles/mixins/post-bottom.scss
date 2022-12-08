@@ -1,0 +1,12 @@
+@mixin post-bottom {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .likes, .controls {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+  }
+}

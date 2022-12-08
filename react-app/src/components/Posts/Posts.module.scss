@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 16px;
+}
+
+.main {
+  width: 660px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.postsCompact {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}

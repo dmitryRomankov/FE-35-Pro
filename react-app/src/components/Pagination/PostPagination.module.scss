@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  border-top: 1px solid var(--color-grayLight-in-grayDark);
+  padding-top: 16px;
+}
+
+.pageButton {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  border-radius: 8px;
+  background-color: var(--color-grayLight-in-grayDark);
+  padding: 16px;
+  color: var(--color-text);
+}
+
+.next {
+  text-align: end;
+}
+
+.titleButton {
+  font-size: 1.2rem;
+  color: var(--color-gray);
+}
+
+.titlePost {
+  margin-top: 4px;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
