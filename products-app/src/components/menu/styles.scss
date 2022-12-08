@@ -1,0 +1,21 @@
+.menu-list {
+	cursor: pointer;
+	list-style: none;
+	width: 400px;
+
+	&__item {
+		font-size: 20px;
+	}
+
+	&__link {
+		text-decoration: none
+	}
+
+	&--closed {
+		width: 50px;
+	}
+}
+
+// .active {
+// 	color: red
+// }
