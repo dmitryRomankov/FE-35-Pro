@@ -11,38 +11,48 @@ import { useState } from "react";
 import { Success } from "./pages/success/Success";
 import { PageNotFound } from "./pages/page-not-found/PageNotFound";
 import { ThemeContextProvider } from "./components/Context/Context";
-// import { ThemeContext } from "./components/Context/Context";
 
-import './App.css';
+import "./App.css";
 
 function App() {
   const [menuActive, setMenuActive] = useState(false);
 
   const handleMenuChange = () => {
-    setMenuActive(!menuActive)
-  }
+    setMenuActive(!menuActive);
+  };
 
-  const Favorites = () => <div><h2>Favorites posts</h2></div>
+  const Favorites = () => (
+    <div>
+      <h2>Favorites posts</h2>
+    </div>
+  );
 
   return (
     <BrowserRouter>
       <div className="App">
         <ThemeContextProvider>
-            <Header items={menuLinks} menuActive={menuActive} onMenuChange={handleMenuChange}></Header>
+          <Header
+            items={menuLinks}
+            menuActive={menuActive}
+            onMenuChange={handleMenuChange}
+          ></Header>
         </ThemeContextProvider>
-        <Menu items={menuLinks} menuActive={menuActive} setActive={setMenuActive}/>
+        <Menu
+          items={menuLinks}
+          menuActive={menuActive}
+          setActive={setMenuActive}
+        />
         <Routes>
-          <Route path="/" element={<Main />}/>
-          <Route path="/posts" element={<CardList/>}/>
-          <Route path="/posts/:id" element={<CardPage/>}/>
-          <Route path="/sign-in" element={<Registration/>}/>
-          <Route path="/success" element={<Success/>}/>
-          <Route path="/favorites" element={<Favorites/>}/>
-          <Route path="/*" element={<PageNotFound />}/>
+          <Route path="/" element={<Main />} />
+          <Route path="/posts" element={<CardList />} />
+          <Route path="/posts/:id" element={<CardPage />} />
+          <Route path="/sign-in" element={<Registration />} />
+          <Route path="/success" element={<Success />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </div>
     </BrowserRouter>
-
   );
 }
 
