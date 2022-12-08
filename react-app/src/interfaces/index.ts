@@ -10,6 +10,10 @@ interface IPost {
 	author?: number
 }
 
+interface IPostsInitialState {
+	posts: IPost[]
+}
+
 interface ILabel {
 	label: string
 }
@@ -42,6 +46,7 @@ interface INav {
 
 export type {
 	IPost,
+	IPostsInitialState,
 	ILabel,
 	IForm,
 	IPostControl,

@@ -1,5 +1,7 @@
 import {useParams} from "react-router-dom"
-import db from "../../db/db.json"
+
+import {useSelector} from "react-redux"
+import {postsSelector} from "../../store/selectors"
 
 import Layout from "../../components/Layout/Layout"
 import Back from "../../components/Back/Back"
@@ -13,7 +15,8 @@ import {IPost} from "../../interfaces"
 
 const Read = () => {
 	const {id} = useParams()
-	const post = db.results.find((post: IPost) => post.id === Number(id))
+	const posts = useSelector(postsSelector)
+	const post = posts.find((post: IPost) => post.id === Number(id))
 
 	return (
 		<Layout>

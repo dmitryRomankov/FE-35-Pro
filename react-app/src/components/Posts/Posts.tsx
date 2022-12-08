@@ -1,5 +1,7 @@
-import db from "../../db/db.json"
 import {Link} from "react-router-dom"
+import {useSelector} from "react-redux"
+
+import {postsSelector} from "../../store/selectors"
 
 import PostPresentation from "./PostPresentation"
 import Post from "./Post"
@@ -8,7 +10,7 @@ import PostCompact from "./PostCompact"
 import styles from "./Posts.module.scss"
 
 const Posts = () => {
-	const [postPresentation, ...rest] = db.results ?? []
+	const [postPresentation, ...rest] = useSelector(postsSelector)
 
 	return (
 		<div className={styles.container}>
