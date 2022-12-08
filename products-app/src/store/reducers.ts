@@ -1,5 +1,4 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { CHANGE_THEME } from "./action-types";
 
 interface ITheme {
   currentTheme: string;
@@ -8,6 +7,13 @@ interface ITheme {
 const themeInitialState: ITheme = {
   currentTheme: "dark",
 };
+
+export const CHANGE_THEME = "CHANGE_THEME";
+
+export const changeThemeAction = (theme: string) => ({
+  type: CHANGE_THEME,
+  payload: theme,
+});
 
 export const themeReducer = (
   state: ITheme = themeInitialState,
@@ -23,4 +29,3 @@ export const themeReducer = (
       return state;
   }
 };
-

@@ -1,0 +1,21 @@
+.posts {
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  &__image {
+    width: 250px;
+    height: 150px;
+    border: 2px solid black;
+  }
+
+  &__like {
+    cursor: pointer;
+    color: yellow;
+
+    &--liked {
+      color: red;
+    }
+  }
+}
