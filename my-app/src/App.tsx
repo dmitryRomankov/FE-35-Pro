@@ -8,13 +8,14 @@ import { Success } from "../src/components/Sucsess/Success";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import data from "./response_1668708166439.json";
+import { RegistrationForm } from "./components/registration/RegistrationForm";
+export let postsData = data.results;
 
-let postsData = data.results;
-console.log(postsData);
 function App() {
   return (
     <BrowserRouter>
       <Header />
+      <RegistrationForm />
       <Routes>
         <Route path="/Success" element={<Success />}></Route>
         <Route

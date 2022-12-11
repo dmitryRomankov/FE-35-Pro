@@ -8,14 +8,16 @@ type Props = {
 
 export function Post(props: Props): JSX.Element {
   return (
-    <div className="post-wrap" id={props.data.id}>
-      <div className="text-wrap">
-        <div className="post-date">{props.data.date} </div>
+    <div className="container">
+      <div className="post-wrap" id={props.data.id}>
         <div className="post-tittle">{props.data.title}</div>
-        <p className="post-text">{props.data.text}</p>
-      </div>
-      <div className="post-image">
-        <img className="image" src={props.data.image} alt="#" />
+        <div className="post-date">{props.data.date} </div>
+        <div className="contant-container">
+          <div className="post-image">
+            <img className="image" src={props.data.image} alt="#" />
+          </div>
+          <span className="post-text">{props.data.text}</span>
+        </div>
       </div>
     </div>
   );
