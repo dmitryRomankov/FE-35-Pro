@@ -10,6 +10,7 @@ import { ProductPage } from "./pages/products/product-page/ProductPage";
 import { ThemeContext, ThemeProvider } from "./components/context/Context";
 import { themeSelector } from "./store/selectors";
 import { Posts } from "./pages/posts/Posts";
+import { Registration } from "./pages/registration";
 import "./App.css";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Menu />
           <Routes>
             <Route path="/" element={<Main />} />
+            <Route path="/registration" element={<Registration />} />
             <Route path="/products" element={<ProductList />} />
             <Route path="/posts" element={<Posts />} />
             <Route path="/products/:id" element={<ProductPage />} />
