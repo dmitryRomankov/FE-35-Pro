@@ -1,8 +1,9 @@
 import { Component, useState } from "react";
 import { Link } from "react-router-dom";
-import "../Burger/Hamburger.css";
+import "./Hamburger.css";
 import "../cdn.css";
-import { Header } from "../Header/Header";
+import { Header } from "../header/Header";
+import { menuLinks } from "../appConstants";
 
 export function Hamburger(props) {
   const [state, setState] = useState(true);
@@ -21,11 +22,13 @@ export function Hamburger(props) {
         <i className="fa-solid fa-xmark"></i>
         <nav className="burger-navigation">
           <ul className="navigation-list">
-            <li className="nav-item">{props.name}</li>
-            <Link to={"/"}>
-              <li className="nav-item">Home</li>
-            </Link>
-            <li className="nav-item">Favorite</li>
+            {menuLinks.map((menu) => {
+              return (
+                <li className="nav-item" key={menu.id}>
+                  <Link to={menu.link}>{menu.linkName}</Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>

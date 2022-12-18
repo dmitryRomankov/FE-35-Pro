@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../registration/registrate.css";
+import "./registrate.css";
 import { RegistrationMessage } from "./RegistrationMessage";
 
 export function RegistrationForm() {

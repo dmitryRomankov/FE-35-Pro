@@ -1,5 +1,5 @@
 import React from "react";
-import "../PostSmall/postsSmall.css";
+import "./postsSmall.css";
 type Props = {
   data: any;
 };

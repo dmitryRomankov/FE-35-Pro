@@ -1,40 +1,56 @@
-import React from "react";
-import { Title } from "./components/Title";
-import { Post } from "../src/components/Post/Post";
-import { Header } from "../src/components/Header/Header";
-import { Posts } from "../src/components/Posts/Posts";
-import { SignIn } from "../src/components/SignIn/SignIn";
-import { Success } from "../src/components/Sucsess/Success";
+import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Title } from "./components/Title";
+import { Post } from "./components/Posts/post/Post";
+import { Header } from "./components/header/Header";
+import { Posts } from "../src/components/Posts/Posts";
+import { SignIn } from "./pages/signIn/SignIn";
+import { Success } from "./components/sucsess/Success";
 import "./App.css";
-import data from "./response_1668708166439.json";
-import { RegistrationForm } from "./components/registration/RegistrationForm";
-export let postsData = data.results;
+import { RegistrationForm } from "./pages/registration/RegistrationForm";
+import { ThemeContext } from "./components/context/Context";
+import { HomePage } from "./pages/homePage/HomePage";
+import { NotFound } from "./pages/notFound/NotFound";
 
 function App() {
+  const theme = useContext(ThemeContext);
+
   return (
     <BrowserRouter>
-      <Header />
-      <RegistrationForm />
-      <Routes>
-        <Route path="/Success" element={<Success />}></Route>
-        <Route
-          path="/SignIn"
-          element={
-            <SignIn title="Sign in" name="User Name" password="Password" />
-          }
-        ></Route>
-        <Route
-          path="/"
-          element={
-            <>
-              <Title content="Blog" />
-              <Posts data={postsData} />
-            </>
-          }
-        ></Route>
-        <Route path={`post/:id`} element={<Post data={postsData[0]} />}></Route>
-      </Routes>
+      <div
+        style={{
+          background: theme.light.background,
+          color: theme.light.textColor,
+        }}
+      >
+        <Header />
+        <Routes>
+          <Route path="/registrate" element={<RegistrationForm />}></Route>
+          <Route path="/Success" element={<Success />}></Route>
+          <Route
+            path="/SignIn"
+            element={
+              <SignIn title="Sign in" name="User Name" password="Password" />
+            }
+          ></Route>
+
+          <Route
+            path="/posts"
+            element={
+              <>
+                <Title content="Blog" />
+                <Posts />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/"
+            element={<HomePage title={"Welcome to blog"}></HomePage>}
+          ></Route>
+          <Route path={`posts/:id`} element={<Post />}></Route>
+          <Route path="/*" element={<NotFound />}></Route>
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }

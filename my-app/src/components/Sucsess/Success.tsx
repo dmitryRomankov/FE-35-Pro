@@ -14,7 +14,7 @@ export function Success(): JSX.Element {
         <h1 className="success-title">Success</h1>
         <div className="success-message">
           <p className="message">you have successfully logged in</p>
-          <Link to={"/"}>
+          <Link to={"/posts"}>
             <button className="success-btn" type="submit" onClick={handleClick}>
               view posts
             </button>

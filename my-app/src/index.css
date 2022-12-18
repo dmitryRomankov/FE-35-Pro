@@ -25,13 +25,13 @@ code {
 .title {
   margin: 20px 0;
 }
-.posts-wrapper {
-  margin: auto;
-  padding: 0 155px;
-}
+
 .posts-wrapper {
   display: flex;
   justify-content: space-between;
-  margin-top: 70px;
-  margin-bottom: 50px;
+  margin-top: 70px auto 0 auto;
+  padding: 0 155px 100px;
+}
+a {
+  color: black;
 }

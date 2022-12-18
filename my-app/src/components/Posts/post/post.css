@@ -1,7 +1,7 @@
 .post-wrap {
-  /* display: flex;
-  justify-content: space-around; */
-  margin: 50px auto;
+  margin: 50px auto 0 auto;
+  padding: 0 0 50px 0;
+  height: 100vh;
 }
 .post-image {
   min-width: 250px;
@@ -33,7 +33,4 @@
 }
 .contant-container {
   margin: auto;
-}
-.post-text {
-  /* width: auto; */
 }
