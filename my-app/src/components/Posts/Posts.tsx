@@ -36,7 +36,6 @@ export const Posts = () => {
           );
         })}
       </ul>
-
       <ul className="posts-small-list">
         {posts.map((i: any, index: any) => {
           return (

@@ -43,11 +43,11 @@ function App() {
               </>
             }
           ></Route>
+          <Route path={`posts/:id`} element={<Post />}></Route>
           <Route
             path="/"
             element={<HomePage title={"Welcome to blog"}></HomePage>}
           ></Route>
-          <Route path={`posts/:id`} element={<Post />}></Route>
           <Route path="/*" element={<NotFound />}></Route>
         </Routes>
       </div>

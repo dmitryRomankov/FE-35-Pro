@@ -11,7 +11,7 @@ export interface IPost {
   image: string;
   text: string;
 }
-interface Props {
+export interface Props {
   itemImgClassName: string;
   imgClassName: string;
   postsItemTitleClassName: string;
