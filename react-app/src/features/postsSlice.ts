@@ -42,8 +42,6 @@ const postsSlice = createSlice({
 				? state.likes[postId] - 1
 				: -1
 
-			console.log(state.likes[postId])
-
 			if (state.likes[postId] < 5 && state.popular.includes(postId)) {
 				state.popular = state.popular.filter(id => id !== postId)
 			}
