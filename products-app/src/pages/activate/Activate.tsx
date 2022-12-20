@@ -11,6 +11,7 @@ export const Activate = () => {
   useEffect(() => {
     dispatch(activateUser({ token, uid }));
   }, [dispatch, token, uid]);
+
   return userActivatedToken ? (
     <div>User Activated! {userActivatedToken} </div>
   ) : (

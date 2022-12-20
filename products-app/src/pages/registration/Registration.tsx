@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { registerUser } from "../../store/users-api-slice";
@@ -14,12 +13,8 @@ export const Registration = () => {
   });
 
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const { user } = useAppSelector((state) => state.user);
-
-  const token = "bghlj4-c871d1dd772416bfd3a60e3c98ee9885";
-  const uid = 'NTY4MQ';
 
   const handleChangeUser = (e) => {
     setUserData((prevState) => ({
@@ -32,7 +27,7 @@ export const Registration = () => {
     dispatch(registerUser(userData));
   };
 
-  const handleActivate = () => navigate(`/activate/${uid}/${token}`);
+  // const handleActivate = () => navigate(`/activate/${uid}/${token}`);
 
   const isUserRegistered = user && user.username && user.id;
 
@@ -41,9 +36,6 @@ export const Registration = () => {
       {isUserRegistered ? (
         <div className="registration__success">
           <h2>Hello {user.username}</h2>
-          <button style={{ padding: "10px" }} onClick={handleActivate}>
-            Activate account
-          </button>
         </div>
       ) : (
         <div className="registration__inputs">
