@@ -55,6 +55,7 @@ const postsSlice = createSlice({
 	extraReducers(builder) {
 		builder.addCase(getPosts.pending, (state) => {
 			state.loading = true
+			state.posts = []
 		})
 		builder.addCase(getPosts.fulfilled, (state, action: PayloadAction<IPosts>) => {
 			state.loading = false
@@ -67,6 +68,7 @@ const postsSlice = createSlice({
 
 		builder.addCase(getPost.pending, (state) => {
 			state.loading = true
+			state.post = undefined
 		})
 		builder.addCase(getPost.fulfilled, (state, action: PayloadAction<IPost>) => {
 			state.loading = false
