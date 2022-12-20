@@ -23,13 +23,12 @@ const postsSlice = createSlice({
 		},
 		increaseLike: (state: IPostsInitialState, action: PayloadAction<number>) => {
 			const postId = action.payload
-			const increaseLikes = state.likes[postId] + 1
 
 			state.likes[postId] = state.likes.hasOwnProperty(postId)
-				? increaseLikes
+				? state.likes[postId] + 1
 				: 1
 
-			if (increaseLikes >= 5 && !state.popular.includes(postId)) {
+			if (state.likes[postId] >= 5 && !state.popular.includes(postId)) {
 				state.popular = [
 					...state.popular,
 					postId,
@@ -38,13 +37,14 @@ const postsSlice = createSlice({
 		},
 		decreaseLike: (state: IPostsInitialState, action: PayloadAction<number>) => {
 			const postId = action.payload
-			const decreaseLikes = state.likes[postId] - 1
 
 			state.likes[postId] = state.likes.hasOwnProperty(postId)
-				? decreaseLikes
+				? state.likes[postId] - 1
 				: -1
 
-			if (decreaseLikes < 5 && state.popular.includes(postId)) {
+			console.log(state.likes[postId])
+
+			if (state.likes[postId] < 5 && state.popular.includes(postId)) {
 				state.popular = state.popular.filter(id => id !== postId)
 			}
 		},
