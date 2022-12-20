@@ -1,21 +1,18 @@
 import React, { useContext, useState } from "react";
-import { useDispatch, useSelector, connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { menuLinks } from "../../constants";
-import { ThemeContext } from "../context/Context";
-import { changeThemeAction } from "../../store/actions";
-import { themeSelector } from "../../store/selectors";
+import { useAppDispatch, useAppSelector } from "../../store/store";
+import { changeTheme } from "../../store/theme-slice";
 import "./styles.scss";
 
 export const Menu = () => {
-  const [menuOpen, setMenuOpen] = useState(true);
-  const dispatch = useDispatch();
-  const context = useContext(ThemeContext);
-  const currentTheme = useSelector(themeSelector);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleToggleMenu = () => setMenuOpen(!menuOpen);
+  const currentTheme = useAppSelector((state) => state.theme.currentTheme);
+  const dispatch = useAppDispatch();
 
-  const handleChangeTheme = () => dispatch(changeThemeAction(currentTheme === "light" ? "dark" : "light"));
+  const handleChangeTheme = () =>
+    dispatch(changeTheme(currentTheme === "light" ? "dark" : "light"));
 
   const handleActiveLink =
     () =>
@@ -25,24 +22,27 @@ export const Menu = () => {
   return (
     <ul
       style={{
-        background: context[currentTheme].background,
-        color: context[currentTheme].textColor,
-        padding: '24px',
-        height: '100vh'
+        padding: "24px",
+        height: "100vh",
       }}
-      className={menuOpen ? "menu-list" : "menu-list menu-list--closed"}
+      className={"menu-list"}
     >
       <button onClick={handleChangeTheme}>Change Theme</button>
-      <h3 onClick={handleToggleMenu}>Menu</h3>
-      {menuLinks.map((menu) => {
-        return (
-          <li className="menu-list__item" key={menu.id}>
-            <NavLink style={handleActiveLink()} to={menu.link} className="">
-              {menu.linkName}
-            </NavLink>
-          </li>
-        );
-      })}
+      <br />
+      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+        {isLoggedIn ? "Logout" : "Sing In"}
+      </button>
+      <h3>Menu</h3>
+      {isLoggedIn &&
+        menuLinks.map((menu) => {
+          return (
+            <li className="menu-list__item" key={menu.id}>
+              <NavLink style={handleActiveLink()} to={menu.link} className="">
+                {menu.linkName}
+              </NavLink>
+            </li>
+          );
+        })}
     </ul>
   );
 };

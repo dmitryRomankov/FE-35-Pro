@@ -1,4 +1,3 @@
-import { RootState } from "./index";
+import { RootState } from "./store";
 
-export const themeSelector = (state: RootState) =>
-  state.themeReducer.currentTheme;
+export const themeSelector = (state: RootState) => state.theme.currentTheme;
