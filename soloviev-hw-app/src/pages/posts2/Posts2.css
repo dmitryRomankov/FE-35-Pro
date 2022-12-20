@@ -1,0 +1,44 @@
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.posts img {
+  width: 196px;
+  height: 196px;
+  border-radius: 6px;
+}
+
+.posts__signs {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  user-select: none;
+}
+
+.posts__like {
+  font-size: 24px;
+  cursor: pointer;
+  color: grey;
+}
+
+.posts__like--liked  {
+  cursor: pointer;
+  color: palevioletred;
+}
+
+.posts__fav {
+  font-size: 24px;
+  cursor: pointer;
+  color: grey;
+}
+
+.posts__fav--faved  {
+  cursor: pointer;
+  color: gold;
+}

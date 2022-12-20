@@ -20,10 +20,14 @@ export const CardPage = () => {
 
     fetchPost();
 
-  }, [params.id])
+  }, [params.id]);
+
+  const handleImageClick = () => {
+    console.log(post.image);
+  }
 
   return (
-    <div className="card-page">
+    <div className="card-page" onClick={handleImageClick}>
       <Card data={post}/>
     </div>
   );

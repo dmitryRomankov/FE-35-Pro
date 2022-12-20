@@ -7,5 +7,7 @@ export const menuLinks = [
   {id: 1, value: "Posts", link: "/posts", href: "/posts"},
   {id: 2, value: "Favorites", link: "/favorites", href: "/favorites"},
   {id: 3, value: "Sign In", link: "/sign-in", href: "/sign-in"},
-  {id: 4, value: "Contacts", link: "/contacts", href: "/contacts"}
+  {id: 4, value: "Contacts", link: "/contacts", href: "/contacts"},
+  {id: 5, value: "Posts2", link: "/posts2", href: "/posts2"},
+
 ]

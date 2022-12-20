@@ -12,7 +12,7 @@ export const Menu = (props) => {
             {props.items.map((item) => {
               return (
               <li key={item.id}>
-                <Link reloadDocument to={item.link}>{item.value}</Link>
+                <Link to={item.link}>{item.value}</Link>
               </li>
               )
             })}
