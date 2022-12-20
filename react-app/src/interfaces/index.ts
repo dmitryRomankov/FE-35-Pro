@@ -10,11 +10,17 @@ interface IPost {
 	author?: number
 }
 
+interface IGetPosts {
+	results: IPost[]
+}
+
 interface IPostsInitialState {
 	posts: IPost[]
 	favorites: number[]
 	popular: number[]
 	likes: any
+	loading: boolean
+	error: string
 }
 
 interface ILabel {
@@ -56,6 +62,7 @@ interface IPopUpProps {
 
 export type {
 	IPost,
+	IGetPosts,
 	IPostsInitialState,
 	ILabel,
 	IForm,

@@ -1,13 +1,15 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {getPosts} from "./postsThunk"
 
-import {IPostsInitialState} from "../interfaces"
-import db from "../db/db.json"
+import {IGetPosts, IPostsInitialState} from "../interfaces"
 
 const initialState: IPostsInitialState = {
-	posts: db.results,
+	posts: [],
 	favorites: [],
 	popular: [],
-	likes: {}
+	likes: {},
+	loading: false,
+	error: '',
 }
 
 const postsSlice = createSlice({
@@ -46,6 +48,23 @@ const postsSlice = createSlice({
 				state.popular = state.popular.filter(id => id !== postId)
 			}
 		},
+	},
+
+	extraReducers(builder) {
+		builder.addCase(getPosts.pending, (state) => {
+			state.loading = true
+		})
+		builder.addCase(
+			getPosts.fulfilled,
+			(state, action: PayloadAction<IGetPosts>) => {
+				state.loading = false
+				state.posts = action.payload.results
+			}
+		)
+		builder.addCase(getPosts.rejected, (state, action: any) => {
+			state.loading = false
+			state.error = action.payload
+		})
 	}
 })
 
