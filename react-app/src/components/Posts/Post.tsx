@@ -1,12 +1,14 @@
+import {Link} from "react-router-dom"
+
+import PostControl from "../PostControl/PostControl"
+
 import {IPost} from "../../interfaces"
 import styles from "./Post.module.scss"
-import PostControl from "../PostControl/PostControl";
-import React from "react";
 
-const Post = ({ date, title, image }: IPost) => {
+const Post = ({id, date, title, image }: IPost) => {
 	return (
 		<div className={styles.container}>
-			<div>
+			<Link to={`/blog/${id}`}>
 				<img
 					src={image}
 					className={styles.poster}
@@ -20,9 +22,9 @@ const Post = ({ date, title, image }: IPost) => {
 				<h2 className={styles.title}>
 					{title}
 				</h2>
-			</div>
+			</Link>
 
-			<PostControl sizeIcon={16}/>
+			<PostControl id={id} sizeIcon={16}/>
 		</div>
 	)
 }

@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
-import { postsReducer } from "./reducers"
+
+import postsReducer from "../features/postsSlice"
 
 const rootReducer = combineReducers({
 	postsReducer,
@@ -8,5 +9,3 @@ const rootReducer = combineReducers({
 export const store = configureStore({
 	reducer: rootReducer,
 })
-
-export type RootState = ReturnType<typeof store.getState>

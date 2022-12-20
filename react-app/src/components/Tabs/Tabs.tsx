@@ -3,20 +3,20 @@ import styles from "./Tabs.module.scss"
 
 type Props = {
 	children?: ReactNode
+	currentTab: number
+	onChangeCurrentTab: (index: number) => void
 }
 
-const Tabs = ({ children }: Props) => {
-	const [state, setState] = useState(0)
-
+const Tabs = ({ children, currentTab, onChangeCurrentTab }: Props) => {
 	const handleClick = (index: number) => {
-		setState(index)
+		onChangeCurrentTab(index)
 	}
 
 	return (
 		<ul className={styles.container}>
 			{React.Children.map(children, (tab, index) => (
 				<li
-					className={index === state ? styles.current : undefined}
+					className={index === currentTab ? styles.current : undefined}
 					onClick={() => handleClick(index)}
 				>
 					{tab}
