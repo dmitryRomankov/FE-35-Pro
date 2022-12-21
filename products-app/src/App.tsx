@@ -10,12 +10,12 @@ import { ProductPage } from "./pages/products/product-page/ProductPage";
 import { ThemeContext, ThemeProvider } from "./components/context/Context";
 import { themeSelector } from "./store/selectors";
 import { Posts } from "./pages/posts/Posts";
+import { Registration } from "./pages/registration";
 import "./App.css";
+import { Activate } from "./pages/activate/Activate";
 
 function App() {
   const theme = useSelector(themeSelector, (prevState, nextState) => {
-    console.log("prevState", prevState);
-    console.log("nextState", nextState);
     if (prevState === nextState) return true;
     return false;
   });
@@ -33,9 +33,11 @@ function App() {
           <Menu />
           <Routes>
             <Route path="/" element={<Main />} />
+            <Route path="/registration" element={<Registration />} />
             <Route path="/products" element={<ProductList />} />
             <Route path="/posts" element={<Posts />} />
             <Route path="/products/:id" element={<ProductPage />} />
+            <Route path="/activate/:uid/:token" element={<Activate />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>

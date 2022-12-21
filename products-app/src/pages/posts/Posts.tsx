@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import { likePost } from "../../store/post-slice";
+import { getPosts, likePost } from "../../store/posts/post-slice";
 
-import "./styles.scss"
+import "./styles.scss";
 
 export const Posts = () => {
   const { posts } = useAppSelector((state) => state.posts);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
 
   return (
     <div className="posts">
