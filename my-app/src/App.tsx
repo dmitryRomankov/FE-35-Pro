@@ -11,10 +11,11 @@ import { RegistrationForm } from "./pages/registration/RegistrationForm";
 import { ThemeContext } from "./components/context/Context";
 import { HomePage } from "./pages/homePage/HomePage";
 import { NotFound } from "./pages/notFound/NotFound";
+import { Tabs } from "./components/tabs/Tabs";
+import { Tab } from "./components/tabs/Tab";
 
 function App() {
   const theme = useContext(ThemeContext);
-
   return (
     <BrowserRouter>
       <div
@@ -25,14 +26,36 @@ function App() {
       >
         <Header />
         <Routes>
-          <Route path="/registrate" element={<RegistrationForm />}></Route>
-          <Route path="/Success" element={<Success />}></Route>
           <Route
+            path="/SignIn"
+            element={
+              <Tabs>
+                <Tab title={"Sign In"}>
+                  <div>
+                    {
+                      <SignIn
+                        title="Sign in"
+                        name="User Name"
+                        password="Password"
+                      />
+                    }
+                  </div>
+                </Tab>
+                <Tab title={"Registrate"}>
+                  <div>
+                    <RegistrationForm title="Registrate" />
+                  </div>
+                </Tab>
+              </Tabs>
+            }
+          ></Route>
+          <Route path="/Success" element={<Success />}></Route>
+          {/* <Route
             path="/SignIn"
             element={
               <SignIn title="Sign in" name="User Name" password="Password" />
             }
-          ></Route>
+          ></Route> */}
 
           <Route
             path="/posts"

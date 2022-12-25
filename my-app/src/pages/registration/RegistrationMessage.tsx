@@ -10,7 +10,7 @@ export function RegistrationMessage(props: Props): JSX.Element {
       <div className="container">
         <div className="registrationMessage-wrapp">
           <div className="registrationMessage">
-            Добро пожаловать, {props.name} вы успешно зарегистрированы!
+            Welcome, {props.name} you've successfully registered!
           </div>
           <button className="registrationMessage-btn">Home</button>
         </div>

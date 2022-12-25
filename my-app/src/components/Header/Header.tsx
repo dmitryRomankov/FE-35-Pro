@@ -7,7 +7,7 @@ export function Header() {
   let userName = "Alex Malkovich";
   return (
     <div className="header">
-      <Hamburger name={userName} />
+      <Hamburger />
       <input type="text" className="header-input" />
       <div className="search">
         <i className="fa-solid fa-magnifying-glass"></i>

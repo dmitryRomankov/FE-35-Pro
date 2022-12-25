@@ -1,0 +1,21 @@
+.tabs {
+  margin: auto;
+  height: 100vh;
+}
+.tabs__list {
+  margin: auto;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+.title {
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.active {
+  border-bottom: 2px solid rgb(32, 62, 195);
+}

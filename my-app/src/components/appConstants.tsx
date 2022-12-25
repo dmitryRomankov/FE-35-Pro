@@ -4,7 +4,6 @@ export const postsApi = `${URL}ProductsReact`;
 
 export const menuLinks = [
   { id: 0, linkName: "favorite", link: "/favorite" },
-  { id: 1, linkName: "registrate", link: "/registrate" },
-  { id: 2, linkName: "home", link: "/" },
-  { id: 3, linkName: "posts", link: "/posts" },
+  { id: 1, linkName: "home", link: "/" },
+  { id: 2, linkName: "posts", link: "/posts" },
 ];
