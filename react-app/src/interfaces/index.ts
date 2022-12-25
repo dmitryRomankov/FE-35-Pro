@@ -5,7 +5,7 @@ interface IHeader {
 }
 
 interface IModels {
-    id?: number
+    id: number
     title: string
     text: string
     date: string
@@ -39,6 +39,14 @@ interface IThemeProvider {
     children: ReactNode
 }
 
+
+interface IProps {
+    children?: ReactNode
+}
+
+interface IState {
+    hasError: boolean
+}
 export type {
     IHeader,
     IModels,
@@ -47,4 +55,6 @@ export type {
     ITitle,
     IThemeContext,
     IThemeProvider,
+    IProps,
+    IState,
 }

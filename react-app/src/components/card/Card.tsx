@@ -1,17 +1,34 @@
+import {Link} from "react-router-dom"
+
+import {useAppDispatch, useAppSelector} from "../../store"
+import Icon from "../icon/Icon"
+import {setFavorites} from "../../features/postingSlice"
+
 import {IModels} from "../../interfaces"
 import './Card.scss'
-import {Link} from "react-router-dom";
 
 const Card = ({id, title, text, date, image}: IModels) => {
+  const dispatch = useAppDispatch()
+  const postFavorites = useAppSelector((state) => state.postingReducer.favorites)
+
+  const handleAddFavorites = () => {
+    dispatch(
+      setFavorites(id)
+    )
+  }
+
+
   return (
-    <Link to={`/blog/${id}`}>
-      <div className={'card'}>
+    <div className={'card'}>
+      <Link to={`/blog/${id}`}>
         <img src={image} alt={""}/>
         <time>{date}</time>
         <h1>{title}</h1>
         <p>{text}</p>
-      </div>
-    </Link>
+      </Link>
+
+      <Icon name={'favorites'} className={postFavorites.includes(id)? 'active' : undefined} onClick={handleAddFavorites} />
+    </div>
   )
 }
 

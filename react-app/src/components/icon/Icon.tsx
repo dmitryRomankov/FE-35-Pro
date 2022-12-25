@@ -2,7 +2,6 @@ import {IIcon} from "../../interfaces"
 import icons from "../../variables/icons"
 
 const Icon = ({ name, className = '', strokeWidth = 1, onClick }: IIcon) => {
-  // @ts-ignore
   const icon = icons[name]
 
   return (

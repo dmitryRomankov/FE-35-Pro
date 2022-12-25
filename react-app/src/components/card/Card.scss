@@ -3,6 +3,16 @@
     box-shadow: 2px 2px 20px 3px rgb(0 0 0 / 15%);
     border-radius: 8px;
     padding: 16px;
+    position: relative;
+
+    svg {
+        cursor: pointer;
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+
+
+    }
 
     h1 {
         overflow: hidden;
@@ -33,5 +43,9 @@
         object-fit: cover;
 
         border-radius: 8px;
+    }
+    .active {
+       color: red;
+
     }
 }
