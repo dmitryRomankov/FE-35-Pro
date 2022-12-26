@@ -11,3 +11,7 @@ export const imagePreviewSelector = (state) => {
 export const postSelector = (state) => {
   return state.postReducer.posts;
 }
+
+export const popularPostsIdSelector = (state) => {
+  return state.postReducer.popularPostsId;
+}

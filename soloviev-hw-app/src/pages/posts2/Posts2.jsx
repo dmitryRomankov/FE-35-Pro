@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { likePost, favPost } from "../../store/post-slice";
-import { postSelector } from "../../store/selectors";
+import { postSelector, popularPostsIdSelector } from "../../store/selectors";
 
 import "./Posts2.css";
 

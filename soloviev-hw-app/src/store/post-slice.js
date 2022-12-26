@@ -65,8 +65,11 @@ const posts = [
   },
 ];
 
+const popularPostsId = [];
+
 const initialPostsState = {
   posts,
+  popularPostsId
 };
 
 const postsSlice = createSlice({
@@ -76,6 +79,14 @@ const postsSlice = createSlice({
     likePost(state, action) {
       const post = state.posts.find((post) => post.id === action.payload)
       post.liked = !post.liked;
+      if (post.liked) {
+        console.log(post.id);
+        state.popularPostsId.push(post.id);
+      }
+      else if (state.popularPostsId.includes(post.id)) {
+        state.popularPostsId.splice(state.popularPostsId.indexOf(post.id, 1));
+      }
+
     },
     favPost(state, action) {
       const post = state.posts.find((post) => post.id === action.payload)

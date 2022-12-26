@@ -7,7 +7,7 @@ export const Menu = (props) => {
   return (
     <div className={props.menuActive ? 'menu active' : 'menu'} onClick={() => props.setActive(false)}>
       <div className="blur">
-        <div className="menu__content" onClick={event => event.stopPropagation()}>
+        <div className="menu__content" >
           <ul>
             {props.items.map((item) => {
               return (

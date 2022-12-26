@@ -14,6 +14,7 @@ import { PageNotFound } from "./pages/page-not-found/PageNotFound";
 import { ThemeContextProvider } from "./components/Context/Context";
 import { Posts2 } from "./pages/posts2/Posts2";
 import { Favorites } from "./pages/favorites/Favorites";
+import { Popular } from "./pages/popular/Popular";
 
 import "./App.css";
 
@@ -46,6 +47,7 @@ function App() {
           <Route path="/sign-in" element={<Registration />} />
           <Route path="/success" element={<Success />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/popular" element={<Popular />} />
           <Route path="/posts2" element={<Posts2 />} />
 
           <Route path="/*" element={<PageNotFound />} />
