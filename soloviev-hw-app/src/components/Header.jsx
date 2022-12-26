@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { ThemeContext } from "./Context/Context";
-// import { changeThemeAction } from "../store/actions";
 import { changeTheme } from "../store/theme-slice";
 import { themeSelector } from "../store/selectors";
 import { Input } from "../pages/sign-in/input/Input";

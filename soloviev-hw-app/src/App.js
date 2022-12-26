@@ -1,6 +1,5 @@
 import { React } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { Header } from "./components/Header";
 import { Main } from "./pages/main/Main";
 import { Menu } from "./components/Menu";
@@ -49,7 +48,6 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/popular" element={<Popular />} />
           <Route path="/posts2" element={<Posts2 />} />
-
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </div>

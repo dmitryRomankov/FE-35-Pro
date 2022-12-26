@@ -1,6 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import { likePost } from "../../store/post-slice";
+import { useSelector } from "react-redux";
 import { postSelector, popularPostsIdSelector } from "../../store/selectors";
 
 import "./Popular.css";
@@ -8,9 +7,6 @@ import "./Popular.css";
 export const Popular = () => {
   const posts = useSelector(postSelector);
   const popularPostsId = useSelector(popularPostsIdSelector);
-
-
-  // const dispatch = useDispatch();
 
   return (
     <div className="posts">

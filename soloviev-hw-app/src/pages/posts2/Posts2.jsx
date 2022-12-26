@@ -1,12 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { likePost, favPost } from "../../store/post-slice";
-import { postSelector, popularPostsIdSelector } from "../../store/selectors";
+import { postSelector } from "../../store/selectors";
 
 import "./Posts2.css";
 
 export const Posts2 = () => {
   const posts = useSelector(postSelector);
+
   const dispatch = useDispatch();
 
   return (
