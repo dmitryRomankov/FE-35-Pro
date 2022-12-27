@@ -6,9 +6,8 @@ import styles from "./PostPresentation.module.scss"
 
 const PostPresentation = ({ id, image, text, date, title }: IPost) => {
 	return (
-		<Link to={`/blog/${id}`}>
 			<div className={styles.container}>
-				<div className={styles.content}>
+				<Link to={`/blog/${id}`} className={styles.content}>
 					<div>
 						<time className={styles.date}>
 							{date}
@@ -28,11 +27,10 @@ const PostPresentation = ({ id, image, text, date, title }: IPost) => {
 						className={styles.poster}
 						alt={title}
 					/>
-				</div>
+				</Link>
 
-				<PostControl sizeIcon={20}/>
+				<PostControl id={id} sizeIcon={20}/>
 			</div>
-		</Link>
 	)
 }
 

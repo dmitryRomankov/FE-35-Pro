@@ -2,11 +2,12 @@ import {IPost} from "../../interfaces"
 import styles from "./PostCompact.module.scss"
 import PostControl from "../PostControl/PostControl";
 import React from "react";
+import {Link} from "react-router-dom";
 
-const PostCompact = ({ date, title, image,  }: IPost) => {
+const PostCompact = ({id, date, title, image}: IPost) => {
 	return (
 		<div className={styles.container}>
-			<div className={styles.content}>
+			<Link to={`/blog/${id}`} className={styles.content}>
 				<div>
 					<time className={styles.date}>
 						{date}
@@ -22,9 +23,9 @@ const PostCompact = ({ date, title, image,  }: IPost) => {
 					className={styles.poster}
 					alt={title}
 				/>
-			</div>
+			</Link>
 
-			<PostControl sizeIcon={14}/>
+			<PostControl id={id} sizeIcon={14}/>
 		</div>
 	)
 }

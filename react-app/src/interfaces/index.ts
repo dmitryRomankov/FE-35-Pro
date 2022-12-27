@@ -1,13 +1,20 @@
 import {ReactNode} from "react"
 
 interface IPost {
-	id?: number
+	id: number
 	image?: string
 	text: string
 	date: string
 	lesson_num?: number
 	title: string
 	author?: number
+}
+
+interface IPostsInitialState {
+	posts: IPost[]
+	favorites: number[]
+	popular: number[]
+	likes: any
 }
 
 interface ILabel {
@@ -20,6 +27,7 @@ interface IForm {
 }
 
 interface IPostControl {
+	id: number
 	sizeIcon: number
 }
 
@@ -40,8 +48,15 @@ interface INav {
 	visible: boolean
 }
 
+interface IPopUpProps {
+	children: ReactNode
+	visiblePopUp: boolean
+	onChange: () => void
+}
+
 export type {
 	IPost,
+	IPostsInitialState,
 	ILabel,
 	IForm,
 	IPostControl,
@@ -49,4 +64,5 @@ export type {
 	IThemeContext,
 	IHamburger,
 	INav,
+	IPopUpProps,
 }

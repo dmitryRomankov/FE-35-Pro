@@ -1,0 +1,24 @@
+.container {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 700px;
+
+  background-color: var(--color-background);
+  box-shadow: 0 0 999px 999px var(--color-violet-transparent_60);
+
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.close {
+  background-color: var(--color-background);
+  border-radius: 100%;
+  position: absolute;
+  top: -16px;
+  right: -16px;
+
+  color: red;
+}

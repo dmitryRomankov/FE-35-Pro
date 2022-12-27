@@ -39,3 +39,8 @@
 .bottom {
  @include post-bottom
 }
+
+.notFound {
+  font-weight: 700;
+  font-size: 2rem;
+}
