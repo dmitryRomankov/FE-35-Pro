@@ -1,20 +1,37 @@
+import {useEffect, useState} from "react"
 import {useNavigate, useParams} from "react-router-dom"
+import {useAppDispatch, useAppSelector} from "../../store"
+
 import Layout from "../../components/layout/Layout"
 import Title from "../../components/title/Title"
-import Card from "../../components/card/Card"
-
-import {IModels} from "../../interfaces"
-import db from "../../db.json"
+import Popup from "../../components/popup/popup"
 
 import "../../styles/pages/SelectedPost.scss"
+import {getPost} from "../../features/postingSlice";
+
+
+
 
 const SelectedPost = () => {
   const {id} = useParams()
-  const navigate = useNavigate()
+  const [popup, setPopup] = useState(false)
+  const dispatch = useAppDispatch()
+  const loading = useAppSelector((state) => state.postingReducer.loading)
 
-  const post = db.results.find((post: IModels) => post.id === Number(id))
+  useEffect(() => {
+    dispatch(
+      getPost(Number(id))
+    )
+  }, [])
+
+  const navigate = useNavigate()
+  const post = useAppSelector((state) => state.postingReducer.post)
 
   const handleBack = () => navigate(-1)
+
+  const handleClick = () => {
+    setPopup(!popup)
+  }
 
   if (!post) {
     return (
@@ -27,8 +44,22 @@ const SelectedPost = () => {
 
   return (
     <Layout>
+      {Boolean(popup) &&
+        <Popup
+          title={post.title}
+          img={post.image}
+          onClick={handleClick}
+        />
+      }
+      {loading &&
+        <h2>Loading...</h2>
+      }
+
+      {!loading && !post &&
+        <h2>Not Found posts</h2>
+      }
       <div className={`card__selectedPost`}>
-        <img src={post.image} alt={""} className={'card__select-img'}/>
+        <img src={post.image} alt={""} className={'card__select-img'} onClick={handleClick}/>
         <time>{post.date}</time>
         <h1>{post.title}</h1>
         <p>{post.text}</p>
@@ -37,4 +68,4 @@ const SelectedPost = () => {
   )
 }
 
-export  default SelectedPost
+export default SelectedPost
