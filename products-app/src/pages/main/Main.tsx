@@ -12,7 +12,7 @@ export const Main = () => {
     password: "qwrc;slksl",
   });
 
-  const [currentUser, setCurrentUser] = useState({});
+  const [users, setUsers] = useState([]);
 
   const token = useAppSelector((state) => state.user.user?.token);
   const loading = useAppSelector((state) => state.user.loading);
@@ -37,12 +37,9 @@ export const Main = () => {
         "https://studapi.teachmeskills.by/auth/users/"
       );
 
-      setCurrentUser({
-        user: result.results,
-      });
-      console.log("err", err);
+      setUsers(result.results || []);
     })();
-  }, [fetcher]);
+  }, [fetcher, token]);
 
   return (
     <div className="login">
@@ -78,6 +75,11 @@ export const Main = () => {
             Refresh
           </button>
           <h2 style={{ wordBreak: "break-word" }}> User Token is {token}</h2>
+          <div>
+            {users.map((u) => (
+              <h4 key={u.id}> Hello {u?.username}</h4>
+            ))}
+          </div>
         </>
       )}
     </div>
