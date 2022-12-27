@@ -1,40 +1,16 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import {
+  InitialState,
+  IUserActivationData,
+  NewUser,
+  User,
+  UserJWT,
+  UserLogin,
+} from "./interfaces";
 
 const tmsApiUrl = "https://studapi.teachmeskills.by/auth/";
 
 // https://studapi.teachmeskills.by/auth/jwt/create/
-
-interface UserLogin {
-  email: string;
-  password: string;
-}
-
-interface User extends UserLogin {
-  username: string;
-}
-
-interface NewUser {
-  username: string;
-  email: string;
-  id: number;
-  token?: string;
-}
-
-interface InitialState {
-  user: NewUser | null;
-  loading: boolean;
-  error: null | string;
-}
-
-interface IUserActivationData {
-  uid: string;
-  token: string;
-}
-
-interface UserJWT {
-  refresh: string;
-  access: string;
-}
 
 const initialState: InitialState = {
   user: {
@@ -116,7 +92,11 @@ export const loginUser = createAsyncThunk(
 
 export const userSlice = createSlice({
   name: "users",
-  reducers: {},
+  reducers: {
+    setAccessToken(state: InitialState, action: PayloadAction<string>) {
+      state.user.token = action.payload;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(registerUser.pending, (state) => {
       state.loading = true;
@@ -166,5 +146,7 @@ export const userSlice = createSlice({
   },
   initialState,
 });
+
+export const { setAccessToken } = userSlice.actions;
 
 export default userSlice.reducer;

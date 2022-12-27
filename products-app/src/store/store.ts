@@ -3,7 +3,7 @@ import { configureStore } from "@reduxjs/toolkit/";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import themeReducer from "./theme-slice";
 import postReducer from "./posts/post-slice";
-import userSlice from "./users-api-slice";
+import userSlice from "./users/users-api-slice";
 import { watcherSaga } from "./posts/posts-sagas";
 
 const sagaMiddleWare = createSagaMiddleware();

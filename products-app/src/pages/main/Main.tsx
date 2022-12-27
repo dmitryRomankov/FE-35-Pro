@@ -1,8 +1,10 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { Input } from "../../ui";
-import { loginUser } from "../../store/users-api-slice";
+import { loginUser } from "../../store/users/users-api-slice";
 import "./styles.scss";
 import { useAppDispatch, useAppSelector } from "../../store/store";
+import { useRefreshToken } from "../../hooks/useRefreshToken";
+import { useFetch } from "../../hooks/useFetch";
 
 export const Main = () => {
   const [authData, setAuth] = useState({
@@ -10,10 +12,16 @@ export const Main = () => {
     password: "qwrc;slksl",
   });
 
+  const [currentUser, setCurrentUser] = useState({});
+
   const token = useAppSelector((state) => state.user.user?.token);
   const loading = useAppSelector((state) => state.user.loading);
 
   const dispatch = useAppDispatch();
+
+  const refresh = useRefreshToken();
+
+  const fetcher = useFetch();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setAuth((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
@@ -22,6 +30,19 @@ export const Main = () => {
   const handleSubmit = () => {
     dispatch(loginUser(authData));
   };
+
+  useEffect(() => {
+    (async () => {
+      const { err, result } = await fetcher(
+        "https://studapi.teachmeskills.by/auth/users/"
+      );
+
+      setCurrentUser({
+        user: result.results,
+      });
+      console.log("err", err);
+    })();
+  }, [fetcher]);
 
   return (
     <div className="login">
@@ -52,7 +73,12 @@ export const Main = () => {
           </button>
         </>
       ) : (
-        <h2> User Token is {token}</h2>
+        <>
+          <button style={{ padding: "10px" }} onClick={() => refresh()}>
+            Refresh
+          </button>
+          <h2 style={{ wordBreak: "break-word" }}> User Token is {token}</h2>
+        </>
       )}
     </div>
   );

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Product } from "../../components/product/Product";
 import { useFetchProducts } from "./useFetchProducts";
 import "./styles.scss";
@@ -11,14 +12,12 @@ export interface IProduct {
 }
 
 export const ProductList = () => {
-  const { products, loading } = useFetchProducts();
+  const { products } = useFetchProducts();
 
   return (
-    <div className="products-list">
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        products.map((product: IProduct) => {
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="products-list">
+        {products.map((product: IProduct) => {
           return (
             <Product
               key={product.id}
@@ -27,8 +26,8 @@ export const ProductList = () => {
               id={product.id}
             />
           );
-        })
-      )}
-    </div>
+        })}
+      </div>
+    </Suspense>
   );
 };
