@@ -7,12 +7,12 @@ export const Menu = (props) => {
   return (
     <div className={props.menuActive ? 'menu active' : 'menu'} onClick={() => props.setActive(false)}>
       <div className="blur">
-        <div className="menu__content" onClick={event => event.stopPropagation()}>
+        <div className="menu__content" >
           <ul>
             {props.items.map((item) => {
               return (
               <li key={item.id}>
-                <Link reloadDocument to={item.link}>{item.value}</Link>
+                <Link to={item.link}>{item.value}</Link>
               </li>
               )
             })}
