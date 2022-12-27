@@ -1,4 +1,6 @@
-import {useState} from "react"
+import {useEffect, useState} from "react"
+
+import useAppDispatch from "../../hooks/useAppDispatch"
 import useAppSelector from "../../hooks/useAppSelector"
 
 import Tab from "../Tabs/Tab"
@@ -8,14 +10,30 @@ import Post from "./Post"
 import PostCompact from "./PostCompact"
 import Title from "../Title/Title"
 
+import {getPosts} from "../../features/postsThunk"
+
 import styles from "./Posts.module.scss"
 
 const Posts = () => {
+	const dispatch = useAppDispatch()
+
 	const posts = useAppSelector((state) => state.postsReducer.posts)
 	const favorites = useAppSelector((state) => state.postsReducer.favorites)
 	const popular = useAppSelector((state) => state.postsReducer.popular)
+	const loading = useAppSelector((state) => state.postsReducer.loading)
+	const error = useAppSelector((state) => state.postsReducer.error)
 
 	const [currentTab, setCurrentTab] = useState(0)
+
+	useEffect(() => {
+		dispatch(
+			getPosts(20)
+		)
+	}, [])
+
+	if (Boolean(error)) {
+		return <Title text={error}/>
+	}
 
 	const [postPresentation, ...rest] = [
 		posts,
@@ -31,11 +49,15 @@ const Posts = () => {
 				<Tab label='Popular'/>
 			</Tabs>
 
-			{!Boolean(postPresentation) &&
+			{loading &&
+				<Title text={'Loading...'}/>
+			}
+
+			{!loading && !Boolean(postPresentation) &&
 				<Title text={'Posts not found'}/>
 			}
 
-			{Boolean(postPresentation) &&
+			{!loading && Boolean(postPresentation) &&
 				<div className={styles.container}>
 					<div className={styles.main}>
 						<PostPresentation {...postPresentation}/>

@@ -1,5 +1,3 @@
-import React from "react"
-
 import Layout from "../../components/Layout/Layout"
 import Title from "../../components/Title/Title"
 import Posts from "../../components/Posts/Posts"
