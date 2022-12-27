@@ -1,10 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit"
 import {getPosts} from "./postsThunk"
+import {getPost} from "./postThunk"
 
-import {IGetPosts, IPostsInitialState} from "../interfaces"
+import {IPosts, IPost, IPostsInitialState} from "../interfaces"
 
 const initialState: IPostsInitialState = {
 	posts: [],
+	post: undefined,
 	favorites: [],
 	popular: [],
 	likes: {},
@@ -53,15 +55,26 @@ const postsSlice = createSlice({
 	extraReducers(builder) {
 		builder.addCase(getPosts.pending, (state) => {
 			state.loading = true
+			state.posts = []
 		})
-		builder.addCase(
-			getPosts.fulfilled,
-			(state, action: PayloadAction<IGetPosts>) => {
-				state.loading = false
-				state.posts = action.payload.results
-			}
-		)
+		builder.addCase(getPosts.fulfilled, (state, action: PayloadAction<IPosts>) => {
+			state.loading = false
+			state.posts = action.payload.results
+		})
 		builder.addCase(getPosts.rejected, (state, action: any) => {
+			state.loading = false
+			state.error = action.payload
+		})
+
+		builder.addCase(getPost.pending, (state) => {
+			state.loading = true
+			state.post = undefined
+		})
+		builder.addCase(getPost.fulfilled, (state, action: PayloadAction<IPost>) => {
+			state.loading = false
+			state.post = action.payload
+		})
+		builder.addCase(getPost.rejected, (state, action: any) => {
 			state.loading = false
 			state.error = action.payload
 		})

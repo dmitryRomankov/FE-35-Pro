@@ -31,15 +31,15 @@ const Posts = () => {
 		)
 	}, [])
 
-	if (Boolean(error)) {
-		return <Title text={error}/>
-	}
-
 	const [postPresentation, ...rest] = [
 		posts,
 		posts.filter(post => favorites.includes(post.id)),
 		posts.filter(post => popular.includes(post.id)),
 	][currentTab]
+
+	if (Boolean(error)) {
+		return <Title text={error}/>
+	}
 
 	return (
 		<>
@@ -53,11 +53,11 @@ const Posts = () => {
 				<Title text={'Loading...'}/>
 			}
 
-			{!loading && !Boolean(postPresentation) &&
+			{!loading && !postPresentation &&
 				<Title text={'Posts not found'}/>
 			}
 
-			{!loading && Boolean(postPresentation) &&
+			{Boolean(postPresentation) &&
 				<div className={styles.container}>
 					<div className={styles.main}>
 						<PostPresentation {...postPresentation}/>

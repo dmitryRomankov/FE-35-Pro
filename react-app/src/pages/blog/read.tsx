@@ -1,5 +1,6 @@
-import {useState} from "react"
+import {useEffect, useState} from "react"
 import {useParams} from "react-router-dom"
+import useAppDispatch from "../../hooks/useAppDispatch"
 import useAppSelector from "../../hooks/useAppSelector"
 
 import Layout from "../../components/Layout/Layout"
@@ -9,14 +10,23 @@ import PostControl from "../../components/PostControl/PostControl"
 import PostPagination from "../../components/Pagination/PostPagination"
 import PopUp from "../../components/PopUp/PopUp"
 
-import {IPost} from "../../interfaces"
+import {getPost} from "../../features/postThunk"
 import styles from "../../styles/pages/blog/read.module.scss"
 
 
 const Read = () => {
 	const {id} = useParams()
-	const posts = useAppSelector((state) => state.postsReducer.posts)
-	const post = posts.find((post: IPost) => post.id === Number(id))
+	const dispatch = useAppDispatch()
+
+	const post = useAppSelector((state) => state.postsReducer.post)
+	const loading = useAppSelector((state) => state.postsReducer.loading)
+	const error = useAppSelector((state) => state.postsReducer.error)
+
+	useEffect(() => {
+		dispatch(
+			getPost(Number(id))
+		)
+	}, [])
 
 	const [visiblePopUp, setVisiblePopUp] = useState(false)
 
@@ -24,9 +34,21 @@ const Read = () => {
 		setVisiblePopUp(!visiblePopUp)
 	}
 
+	if (Boolean(error)) {
+		return <Title text={error}/>
+	}
+
 	return (
 		<Layout>
 			<Back label='Back to posts'/>
+
+			{loading &&
+				<Title text={'Loading...'}/>
+			}
+
+			{!loading && !post &&
+				<Title text={'Post not found'}/>
+			}
 
 			{Boolean(post) &&
 				<>
@@ -43,10 +65,6 @@ const Read = () => {
 
 					<PostControl id={Number(id)} sizeIcon={24}/>
 				</>
-			}
-
-			{!Boolean(post) &&
-				<Title text='Oops. This page does not exist!'/>
 			}
 
 			<PostPagination/>
