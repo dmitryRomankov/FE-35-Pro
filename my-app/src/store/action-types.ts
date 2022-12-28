@@ -1,1 +1,1 @@
-import React from "react";
+export const OPEN_PREVIEW = "VIEW_PICTURE";

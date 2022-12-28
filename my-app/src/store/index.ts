@@ -1,0 +1,1 @@
+import { viewPictureReducer } from "./reducer";
