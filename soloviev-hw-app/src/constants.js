@@ -1,4 +1,5 @@
 const baseUrl = 'https://638cfa02eafd555746b35ef9.mockapi.io/';
+export const postsUrl = "https://studapi.teachmeskills.by/blog/posts/?limit=24&offset=50";
 
 export const postsApiUrl = `${baseUrl}posts`;
 
