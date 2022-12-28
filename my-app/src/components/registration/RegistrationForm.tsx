@@ -8,11 +8,11 @@ export function RegistrationForm() {
     email: "",
     name: "",
   });
-  const [isEnter, setState] = useState(false);
+  const [isEnter, setIsEnter] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("state", form);
-    setState(!isEnter);
+    setIsEnter(!isEnter);
   };
   const handleChange = (event: any) => {
     setRegistrateForm((prevState) => ({
