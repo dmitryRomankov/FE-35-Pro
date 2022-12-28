@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postImageSelector } from "../../../store/selectors";
 import { postImagePreview } from "../../../store/post-image-slice";
-import { postsApiUrl } from "../../../constants";
 import { Card } from "../../../components/Card";
 import { ModalImage } from "./ModalImage";
 
@@ -21,7 +20,7 @@ export const CardPage = () => {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const response = await fetch(`${postsApiUrl}/${params.id}`);
+      const response = await fetch(`https://studapi.teachmeskills.by/blog/posts/${params.id}/`);
       const post = await response.json();
       setPost(post);
     }

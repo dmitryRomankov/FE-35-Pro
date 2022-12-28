@@ -1,18 +1,17 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import { likePost } from "../../store/post-slice";
-import { postSelector } from "../../store/selectors";
+import { useSelector } from "react-redux";
+import { postSelector, favoritePostsIdSelector } from "../../store/selectors";
 
 import "./Favorites.css";
 
 export const Favorites = () => {
   const posts = useSelector(postSelector);
-  // const dispatch = useDispatch();
+  const favoritePostsId = useSelector(favoritePostsIdSelector);
 
   return (
     <div className="posts">
       {posts.map((post) => {
-        if (!post.fav) return null;
+        if (!favoritePostsId.includes(post.id)) return null;
         else {
           return (
             <div key={post.id}>
