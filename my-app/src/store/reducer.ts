@@ -9,7 +9,10 @@ const themeInitialState: IPreview = {
   isOpen: false,
 };
 
-export const viewPictureReducer = (state, action: PayloadAction<string>) => {
+export const viewPictureReducer = (
+  state: IPreview = themeInitialState,
+  action: PayloadAction<boolean>
+) => {
   switch (action.type) {
     case OPEN_PREVIEW:
       return {

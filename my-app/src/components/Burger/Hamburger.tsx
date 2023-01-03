@@ -6,9 +6,9 @@ import { menuLinks } from "../appConstants";
 
 export function Hamburger() {
   const [state, setState] = useState(true);
-  const [logInState, setogInState] = useState(true);
+  const [logInState, setLogInState] = useState(true);
   const handleClicklogIn = () => {
-    setogInState(!logInState);
+    setLogInState(!logInState);
   };
   const handleClick = () => {
     setState(!state);
