@@ -33,16 +33,15 @@ export const Menu = () => {
         {isLoggedIn ? "Logout" : "Sing In"}
       </button>
       <h3>Menu</h3>
-      {isLoggedIn &&
-        menuLinks.map((menu) => {
-          return (
-            <li className="menu-list__item" key={menu.id}>
-              <NavLink style={handleActiveLink()} to={menu.link} className="">
-                {menu.linkName}
-              </NavLink>
-            </li>
-          );
-        })}
+      {menuLinks.map((menu) => {
+        return (
+          <li className="menu-list__item" key={menu.id}>
+            <NavLink style={handleActiveLink()} to={menu.link} className="">
+              {menu.linkName}
+            </NavLink>
+          </li>
+        );
+      })}
     </ul>
   );
 };
