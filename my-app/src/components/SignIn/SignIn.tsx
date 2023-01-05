@@ -8,13 +8,6 @@ type Props = {
 };
 
 export function SignIn(props: Props): JSX.Element {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  //   const [nameError, setNameError] = useState("Enter Name");
-  //   const [passwordError, setPasswordError] = useState("Enter Password");
-  //  const handleUserInput = (e) {
-
-  //  }
   return (
     <div className="container">
       <div className="signIn-wrapp">
@@ -23,23 +16,13 @@ export function SignIn(props: Props): JSX.Element {
           <div className="input-container">
             <label className="input-title">
               {props.name}
-              <input
-                // value={name}
-                className="input"
-                type="text"
-                placeholder="Name"
-              />
+              <input className="input" type="text" placeholder="Name" />
             </label>
           </div>
           <label className="input-container">
             <div className="input-title">
               {props.password}
-              <input
-                // value={password}
-                className="input"
-                type="text"
-                placeholder="Password"
-              />
+              <input className="input" type="text" placeholder="Password" />
             </div>
           </label>
           <Link to={"/Success"}>

@@ -4,6 +4,7 @@ import { PostsSmall } from "../PostSmall/PostSmall";
 import "../Posts/posts.css";
 import { Link } from "react-router-dom";
 import { Post } from "../Post/Post";
+
 type Props = {
   data: any;
 };
