@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import "../registration/registrate.css";
+import "./registrate.css";
 import { RegistrationMessage } from "./RegistrationMessage";
-
-export function RegistrationForm() {
+interface IPropsRegistration {
+  title: string;
+}
+export function RegistrationForm(props: IPropsRegistration): JSX.Element {
   const [form, setRegistrateForm] = useState({
     password: "",
     email: "",
@@ -24,7 +26,7 @@ export function RegistrationForm() {
     return (
       <div className="container">
         <div className="registrate-wrapp">
-          <h1 className="registrate-title"></h1>
+          <h1 className="registrate-title">{props.title}</h1>
           <form
             className="registrate-form"
             action=""

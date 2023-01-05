@@ -1,0 +1,21 @@
+.modal {
+  position: absolute;
+  right: 0;
+  z-index: 99;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+  margin-top: -50px;
+}
+.modal.active {
+  transform: scale(1);
+  border: none;
+}
+.modal-img {
+  width: 500px;
+  height: 500px;
+}

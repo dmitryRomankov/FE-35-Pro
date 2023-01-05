@@ -1,0 +1,68 @@
+.registrate-wrapp {
+  margin: auto;
+  margin-top: 30px;
+}
+.registrate-form {
+  margin: auto;
+  text-align: center;
+  border: 1px solid rgb(124, 124, 124);
+  width: 500px;
+  padding: 50px;
+  margin-top: 30px;
+}
+.registrate-input-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+.registrate-input {
+  width: 400px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.registrate-input-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(124, 124, 124);
+  margin-bottom: 5px;
+  align-items: flex-start;
+}
+.registrate-btn {
+  width: 400px;
+  padding: 10px;
+  background-color: #203ec3;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.registrationMessage {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 26px;
+}
+.registrationMessage-wrapp {
+  margin-top: 100px;
+}
+.registrationMessage-btn {
+  display: block;
+  background-color: rgb(195, 32, 162);
+  font-size: 16px;
+  color: #fff;
+  padding: 10px 35px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+}
+.registrate-title {
+  margin: auto;
+  width: 500px;
+  font-size: 26px;
+  font-weight: 400;
+}

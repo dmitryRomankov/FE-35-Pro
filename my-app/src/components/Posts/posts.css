@@ -25,6 +25,9 @@
   height: 100%;
   position: absolute;
 }
+.posts-wrap a {
+  text-decoration: none;
+}
 .posts-item-image {
   width: 100%;
   min-height: 300px;

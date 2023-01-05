@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../SignIn/signIn.css";
+import "./signIn.css";
 type Props = {
   title: string;
   name: string;

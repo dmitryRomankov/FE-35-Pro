@@ -1,34 +1,51 @@
-import { Component, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import "../Burger/Hamburger.css";
+import "./Hamburger.css";
 import "../cdn.css";
-import { Header } from "../Header/Header";
+import { menuLinks } from "../appConstants";
 
-export function Hamburger(props) {
+export function Hamburger() {
   const [state, setState] = useState(true);
+  const [logInState, setLogInState] = useState(true);
+  const handleClicklogIn = () => {
+    setLogInState(!logInState);
+  };
   const handleClick = () => {
     setState(!state);
   };
-  if (state) {
-    return (
-      <div className="burger">
-        <i className="fa-solid fa-bars" onClick={handleClick}></i>
-      </div>
-    );
-  } else {
-    return (
-      <div className="burger" onClick={handleClick}>
-        <i className="fa-solid fa-xmark"></i>
-        <nav className="burger-navigation">
-          <ul className="navigation-list">
-            <li className="nav-item">{props.name}</li>
-            <Link to={"/"}>
-              <li className="nav-item">Home</li>
-            </Link>
-            <li className="nav-item">Favorite</li>
+  return (
+    <div className={"burger"}>
+      <i
+        onClick={handleClick}
+        className={state ? "fa-solid fa-bars" : "fa-solid fa-xmark"}
+      ></i>
+      <nav
+        style={state ? { display: "none" } : { display: "block" }}
+        className={"burger-navigation"}
+        onClick={() => setState(true)}
+      >
+        <div className="blur">
+          <ul
+            className={"navigation-list"}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {menuLinks.map((menu) => {
+              return (
+                <li
+                  onClick={() => setState(true)}
+                  className={"nav-item"}
+                  key={menu.id}
+                >
+                  <Link to={menu.link}>{menu.linkName}</Link>
+                </li>
+              );
+            })}
+            <button onClick={handleClicklogIn} className="logOut-btn">
+              {logInState ? "log out" : "log in"}
+            </button>
           </ul>
-        </nav>
-      </div>
-    );
-  }
+        </div>
+      </nav>
+    </div>
+  );
 }
