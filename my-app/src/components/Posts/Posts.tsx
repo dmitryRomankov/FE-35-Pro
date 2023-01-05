@@ -12,7 +12,6 @@ export const Posts = () => {
     const fetchPosts = async () => {
       const response = await fetch(postsApi);
       const posts = await response.json();
-
       setPosts(posts);
     };
     fetchPosts();
@@ -22,7 +21,7 @@ export const Posts = () => {
       <ul className="posts-list">
         {posts.map((i: any, index: any) => {
           return (
-            <li className="post-item" key={index}>
+            <li className="post-item" id={i.id} key={i.id}>
               <div className="posts-wrap">
                 <PostsPreview
                   imgClassName="post-image"
@@ -50,3 +49,4 @@ export const Posts = () => {
     </div>
   );
 };
+export default Posts;
