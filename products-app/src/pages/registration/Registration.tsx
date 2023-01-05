@@ -27,8 +27,6 @@ export const Registration = () => {
     dispatch(registerUser(userData));
   };
 
-  // const handleActivate = () => navigate(`/activate/${uid}/${token}`);
-
   const isUserRegistered = user && user.username && user.id;
 
   return (
