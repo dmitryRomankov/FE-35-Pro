@@ -12,7 +12,7 @@ export const Main = () => {
     password: "qwrc;slksl",
   });
 
-  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState(null);
 
   const token = useAppSelector((state) => state.user.user?.token);
   const loading = useAppSelector((state) => state.user.loading);
@@ -32,18 +32,21 @@ export const Main = () => {
   };
 
   useEffect(() => {
-    (async () => {
-      const { err, result } = await fetcher(
-        "https://studapi.teachmeskills.by/auth/users/"
-      );
-
-      setUsers(result.results || []);
-    })();
+    if (token) {
+      (async () => {
+        const { err, result } = await fetcher(
+          "https://studapi.teachmeskills.by/auth/users/me/"
+        );
+        setUser(result);
+      })();
+    }
   }, [fetcher, token]);
+
+  console.log("users", user);
 
   return (
     <div className="login">
-      {!token ? (
+      {!user ? (
         <>
           <Input
             id="login"
@@ -76,9 +79,10 @@ export const Main = () => {
           </button>
           <h2 style={{ wordBreak: "break-word" }}> User Token is {token}</h2>
           <div>
-            {users.map((u) => (
-              <h4 key={u.id}> Hello {u?.username}</h4>
-            ))}
+            <h4>
+              {" "}
+              Hello {user?.username} | email: {user.email}
+            </h4>
           </div>
         </>
       )}
