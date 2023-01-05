@@ -1,11 +1,13 @@
 import { useCallback } from "react";
-import { useAppSelector } from "../store/store";
+import { useAppDispatch, useAppSelector } from "../store/store";
+import { setAccessToken } from "../store/users/users-api-slice";
 import { useRefreshToken } from "./useRefreshToken";
 
 export const useFetch = () => {
   const refresh = useRefreshToken();
   const accessToken = useAppSelector((state) => state.user.user?.token);
-
+  const dispatch = useAppDispatch();
+  
   const startFetch = useCallback(
     async (input: RequestInfo | URL, init?: RequestInit) => {
       try {
@@ -27,7 +29,8 @@ export const useFetch = () => {
         clearTimeout(timerId);
 
         if (accessToken && response.status === 401) {
-          await refresh();
+          const newAccessToken = await refresh();
+          dispatch(setAccessToken(newAccessToken));
           return startFetch(input, init);
         }
 
@@ -36,7 +39,7 @@ export const useFetch = () => {
         return { err: err.message };
       }
     },
-    [refresh, accessToken]
+    [accessToken, dispatch, refresh]
   );
 
   return startFetch;
