@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Hamburger } from "../burger/Hamburger";
+import { Hamburger } from "../Burger/Hamburger";
 import "./Header.css";
 
 export function Header() {

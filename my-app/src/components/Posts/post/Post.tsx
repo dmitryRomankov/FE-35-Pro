@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { IPost } from "../postPreview/PostPreview";
 import "./post.css";
-import { postsApi } from "../../appConstants";
+import { URL } from "../../appConstants";
 import { openPreviewAction } from "../../../store/actions";
 import { openPreviewSelector } from "../../../store/selectors";
 import { ModalWindow } from "../../modalPic/ModalWindow";
@@ -21,13 +21,12 @@ export function Post() {
   const [modalActive, setModalActive] = useState(false);
   const handleOpenPreview = () => {
     dispatch(openPreviewAction(openPreview === true ? false : post.image));
-
     setModalActive(!modalActive);
   };
   const { id } = useParams();
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch(`${postsApi}/${id}`);
+      const response = await fetch(`${URL}/${id}`);
       const post = await response.json();
       setPost(post);
     };
