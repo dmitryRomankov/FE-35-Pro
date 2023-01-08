@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { fetchPostsThunk, IPostsResponse } from "./posts-api";
 
 export interface IPost {
   id: number;
@@ -13,12 +14,14 @@ export interface IPost {
 
 interface InitialPostState {
   posts: IPost[];
+  count: number;
   error: null | string;
   loading: boolean;
 }
 
 const initialPostsState: InitialPostState = {
   posts: [],
+  count: 0,
   error: null,
   loading: false,
 };
@@ -40,6 +43,24 @@ const postsSlice = createSlice({
     setPostsError(state: InitialPostState, action: PayloadAction<string>) {
       return { ...state, posts: [], loading: false, error: action.payload };
     },
+  },
+
+  extraReducers(builder) {
+    builder.addCase(fetchPostsThunk.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(
+      fetchPostsThunk.fulfilled,
+      (state, action: PayloadAction<IPostsResponse>) => {
+        state.loading = false;
+        state.posts = action.payload.results;
+        state.count = action.payload.count;
+      }
+    );
+    builder.addCase(fetchPostsThunk.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
   },
 });
 
