@@ -18,6 +18,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.4",
     "react-scripts": "5.0.1",
+    "react-test-renderer": "^18.2.0",
     "redux": "^4.2.0",
     "redux-saga": "^1.2.2",
     "sass": "^1.56.1",
@@ -48,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-test-renderer": "^18.0.0"
   }
 }

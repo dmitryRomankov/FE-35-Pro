@@ -14,6 +14,7 @@ import "./App.css";
 import { Activate } from "./pages/activate/Activate";
 import { CreatePost } from "./pages/create-post";
 import { useAppSelector } from "./store/store";
+import { TestPage } from "./pages/test-page";
 
 function App() {
   const theme = useAppSelector(themeSelector, (prevState, nextState) => {
@@ -38,6 +39,10 @@ function App() {
             <Route path="/products" element={<ProductList />} />
             <Route path="/posts" element={<Posts />} />
             <Route path="/posts/create" element={<CreatePost />} />
+            <Route
+              path="/test-page"
+              element={<TestPage name="Dmitry" isShow />}
+            />
             <Route path="/products/:id" element={<ProductPage />} />
             <Route path="/activate/:uid/:token" element={<Activate />} />
             <Route path="/*" element={<NotFound />} />

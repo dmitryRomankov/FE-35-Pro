@@ -81,7 +81,7 @@ export function CreatePost() {
               className="create-post__button"
               onClick={handleCreateNewPost}
             >
-              Create Post
+              Create
             </button>
           </div>
         </div>
@@ -98,4 +98,3 @@ export function CreatePost() {
     </div>
   );
 }
-

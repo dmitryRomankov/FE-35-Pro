@@ -8,5 +8,5 @@ export const menuLinks = [
   { id: 2, linkName: "products", link: "/products" },
   { id: 3, linkName: "posts", link: "/posts" },
   { id: 4, linkName: "favorites", link: "/favorites" },
-  { id: 5, linkName: "support", link: "/support" },
+  { id: 5, linkName: "test", link: "/test-page" },
 ];

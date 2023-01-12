@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test page Component renders correctly 1`] = `
+<div>
+  <h1>
+    Test page
+  </h1>
+  <h2>
+    Hello 
+    Dmitry
+  </h2>
+</div>
+`;
