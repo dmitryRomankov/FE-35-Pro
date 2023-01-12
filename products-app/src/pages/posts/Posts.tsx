@@ -3,13 +3,13 @@ import { usePosts } from "./usePosts";
 import "./styles.scss";
 import { Pagination } from "../../components/pagination/Pagination";
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export const Posts = () => {
   const [params] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(+params.get("page") || 1);
 
-  const limitPerPage = 10;
+  const limitPerPage = 15;
   const currentOffset =
     currentPage > 1 ? (currentPage - 1) * limitPerPage : null;
 
@@ -34,6 +34,7 @@ export const Posts = () => {
         />
         <button style={{ padding: "10px" }}>Search</button>
       </form>
+      <Link to="/posts/create"> Create post </Link>
       <div className="posts__list">
         {posts.map((post) => (
           <div className="posts__post-card" key={post.id}>

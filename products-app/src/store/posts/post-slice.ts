@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchPostsThunk, IPostsResponse } from "./posts-api";
+import { createPostThunk, fetchPostsThunk, IPostsResponse } from "./posts-api";
 
 export interface IPost {
   id: number;
@@ -9,7 +9,7 @@ export interface IPost {
   lesson_num: number;
   title: string;
   author: number;
-  liked: boolean;
+  liked?: boolean;
 }
 
 interface InitialPostState {
@@ -17,6 +17,7 @@ interface InitialPostState {
   count: number;
   error: null | string;
   loading: boolean;
+  isNewPostCreated: boolean;
 }
 
 const initialPostsState: InitialPostState = {
@@ -24,6 +25,7 @@ const initialPostsState: InitialPostState = {
   count: 0,
   error: null,
   loading: false,
+  isNewPostCreated: false,
 };
 
 const postsSlice = createSlice({
@@ -38,7 +40,12 @@ const postsSlice = createSlice({
       return { ...state, loading: true };
     },
     setPostsSuccess(state: InitialPostState, action: PayloadAction<IPost[]>) {
-      return { ...state, posts: action.payload, loading: false };
+      return {
+        ...state,
+        posts: action.payload,
+        loading: false,
+        isNewPostCreated: false,
+      };
     },
     setPostsError(state: InitialPostState, action: PayloadAction<string>) {
       return { ...state, posts: [], loading: false, error: action.payload };
@@ -55,9 +62,21 @@ const postsSlice = createSlice({
         state.loading = false;
         state.posts = action.payload.results;
         state.count = action.payload.count;
+        state.isNewPostCreated = false;
       }
     );
     builder.addCase(fetchPostsThunk.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    });
+    builder.addCase(createPostThunk.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(createPostThunk.fulfilled, (state) => {
+      state.loading = false;
+      state.isNewPostCreated = true;
+    });
+    builder.addCase(createPostThunk.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
     });

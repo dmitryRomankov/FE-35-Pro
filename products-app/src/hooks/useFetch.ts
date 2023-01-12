@@ -5,9 +5,11 @@ import { useRefreshToken } from "./useRefreshToken";
 
 export const useFetch = () => {
   const refresh = useRefreshToken();
-  const accessToken = useAppSelector((state) => state.user.user?.token);
+  const accessToken =
+    useAppSelector((state) => state.user.user?.token) ||
+    localStorage.getItem("access");
   const dispatch = useAppDispatch();
-  
+
   const startFetch = useCallback(
     async (input: RequestInfo | URL, init?: RequestInit) => {
       try {
@@ -31,7 +33,7 @@ export const useFetch = () => {
         if (accessToken && response.status === 401) {
           const newAccessToken = await refresh();
           dispatch(setAccessToken(newAccessToken));
-          return startFetch(input, init);
+          // return startFetch(input, init);
         }
 
         return { result: await response.json() };

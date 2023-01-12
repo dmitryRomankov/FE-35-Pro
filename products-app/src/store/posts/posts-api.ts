@@ -1,8 +1,7 @@
+import { objectToFormData } from "./../../helpers/objectToFormData";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { buildUrl } from "../../helpers/buildUrl";
 import { IPost } from "./post-slice";
-
-// TODO: 1. Keypress Search;
-// TODO: 2. Keydown enter Search;
 
 const postApiUrl = "https://studapi.teachmeskills.by/blog/posts/";
 
@@ -11,29 +10,47 @@ export interface IPostsResponse {
   count: number;
 }
 
-const buildUrl = (url: string, params: string | Record<string, string> | string[][] | URLSearchParams): string => {
-  const p = new URLSearchParams(params);
+export interface INewPost {
+  [key: string]: string | any;
+}
 
-  p.forEach((key, value) => {
-    if (!value) p.delete(key);
-  });
+export const fetchPostsThunk = createAsyncThunk<
+  IPostsResponse,
+  string | Record<string, string> | string[][] | URLSearchParams
+>("posts/fetchPosts", async (postUrlParams, thunkApi) => {
+  try {
+    const url = buildUrl(postApiUrl, postUrlParams);
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    return await response.json();
+  } catch (err) {
+    return thunkApi.rejectWithValue({
+      message: err.message,
+    });
+  }
+});
 
-  return url + "?" + p.toString();
-};
-
-export const fetchPostsThunk = createAsyncThunk<IPostsResponse, string | Record<string, string> | string[][] | URLSearchParams>(
-  "posts/fetchPosts",
-  async (postUrlParams, thunkApi) => {
+export const createPostThunk = createAsyncThunk<IPost, INewPost>(
+  "posts/createPost",
+  async (newPost, thunkApi) => {
     try {
-      const url = buildUrl(postApiUrl, postUrlParams);
-      const response = await fetch(url, {
-        method: "GET",
+      const accessToken = localStorage.getItem("access");
+
+      const formData = objectToFormData(newPost);
+
+      const result = await fetch(postApiUrl, {
+        method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+          Authorization: `Bearer ${accessToken}`,
         },
+        body: formData,
       });
-      return await response.json();
+      return await result.json();
     } catch (err) {
       return thunkApi.rejectWithValue({
         message: err.message,

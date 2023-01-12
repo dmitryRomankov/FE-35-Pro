@@ -21,6 +21,7 @@ export const useRefreshToken = () => {
       }
     );
     const result = await response.json();
+    localStorage.setItem("access", result.access);
     dispatch(setAccessToken(result.access));
     return result.access;
   }, [dispatch, refreshTokenLocal]);

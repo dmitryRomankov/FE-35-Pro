@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 import { ProductList } from "./pages/products/Products";
 import { Menu } from "./components";
@@ -13,9 +12,11 @@ import { Posts } from "./pages/posts/Posts";
 import { Registration } from "./pages/registration";
 import "./App.css";
 import { Activate } from "./pages/activate/Activate";
+import { CreatePost } from "./pages/create-post";
+import { useAppSelector } from "./store/store";
 
 function App() {
-  const theme = useSelector(themeSelector, (prevState, nextState) => {
+  const theme = useAppSelector(themeSelector, (prevState, nextState) => {
     if (prevState === nextState) return true;
     return false;
   });
@@ -36,6 +37,7 @@ function App() {
             <Route path="/registration" element={<Registration />} />
             <Route path="/products" element={<ProductList />} />
             <Route path="/posts" element={<Posts />} />
+            <Route path="/posts/create" element={<CreatePost />} />
             <Route path="/products/:id" element={<ProductPage />} />
             <Route path="/activate/:uid/:token" element={<Activate />} />
             <Route path="/*" element={<NotFound />} />

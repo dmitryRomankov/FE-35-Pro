@@ -3,7 +3,7 @@ import "./styles.scss";
 
 type InputProps = {
   name: string;
-  id: string;
+  id?: string;
   value?: string;
   type?: string;
   placeholder?: string;

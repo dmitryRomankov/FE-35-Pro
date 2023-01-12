@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import { registerUser } from "../../store/users/users-api-slice";
+import { registerUser } from "../../store/users/users-api";
 
 import "./styles.scss";
 

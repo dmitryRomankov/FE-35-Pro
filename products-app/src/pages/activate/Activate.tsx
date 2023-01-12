@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { useParams } from "react-router-dom";
-import { activateUser } from "../../store/users/users-api-slice";
+import { activateUser } from "../../store/users/users-api";
 
 export const Activate = () => {
   const { token, uid } = useParams();

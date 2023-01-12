@@ -1,0 +1,19 @@
+.create-post {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__image {
+    width: 150px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  &__button {
+    padding: 5px;
+  }
+}

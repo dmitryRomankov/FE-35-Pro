@@ -1,10 +1,11 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Input } from "../../ui";
-import { loginUser } from "../../store/users/users-api-slice";
+import { loginUser } from "../../store/users/users-api";
 import "./styles.scss";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { useRefreshToken } from "../../hooks/useRefreshToken";
 import { useFetch } from "../../hooks/useFetch";
+import { setAccessToken, setUser } from "../../store/users/users-api-slice";
 
 export const Main = () => {
   const [authData, setAuth] = useState({
@@ -12,15 +13,11 @@ export const Main = () => {
     password: "qwrc;slksl",
   });
 
-  const [user, setUser] = useState(null);
-
   const token = useAppSelector((state) => state.user.user?.token);
+  const { user } = useAppSelector((state) => state.user) || {};
   const loading = useAppSelector((state) => state.user.loading);
 
   const dispatch = useAppDispatch();
-
-  const refresh = useRefreshToken();
-
   const fetcher = useFetch();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -32,21 +29,22 @@ export const Main = () => {
   };
 
   useEffect(() => {
-    if (token) {
+    const accessTokenLs = localStorage.getItem("access");
+
+    if (accessTokenLs) {
       (async () => {
         const { err, result } = await fetcher(
           "https://studapi.teachmeskills.by/auth/users/me/"
         );
-        setUser(result);
+        dispatch(setUser(result));
+        dispatch(setAccessToken(accessTokenLs));
       })();
     }
-  }, [fetcher, token]);
-
-  console.log("users", user);
+  }, [fetcher, dispatch]);
 
   return (
     <div className="login">
-      {!user ? (
+      {!user.username ? (
         <>
           <Input
             id="login"
@@ -74,9 +72,6 @@ export const Main = () => {
         </>
       ) : (
         <>
-          <button style={{ padding: "10px" }} onClick={() => refresh()}>
-            Refresh
-          </button>
           <h2 style={{ wordBreak: "break-word" }}> User Token is {token}</h2>
           <div>
             <h4>
