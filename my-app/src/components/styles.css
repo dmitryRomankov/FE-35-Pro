@@ -1,0 +1,19 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    width: 200px;    
+}
+
+/* button {
+    width: 100px;
+    height: 50px;
+    background-color: blueviolet;
+    cursor: pointer;
+    border: none;
+} */
